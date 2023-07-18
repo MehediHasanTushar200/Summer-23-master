@@ -11,14 +11,22 @@
         <link href="{{URL::asset('backend/css/styles.css')}}" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
+
+    
    <!-- top bar start -->
-@include('backend.fixed.header')
+           @include('backend.fixed.header')
    <!-- top bar end -->
 
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+
+                   
+                    <a  id="navbarDropdown" href="#" role="button"  data-bs-toggle="dropdown" aria-expanded="false">
+                         <img src="/uploads/login/TUSHAR.PNG" alt="Logo" class="logo-img"   role= "button"style="width: 50px;  hight:50px" >
+                         {{-- <i class="fas fa-user fa-fw"></i> --}}
+                         {{-- class="nav-link dropdown-toggle" --}}
+                    </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>

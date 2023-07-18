@@ -24,7 +24,7 @@
                               <tr>
                                 <th scope="row">{{$loop->iteration}}</th>
                                 <td>{{$product->name}}</td>
-                                <td>{{$product->tushar->name}}</td>
+                                <td>{{$product->name}}</td>
                                 <td>{{$product->description}}</td>
                                 <td>{{$product->status}}</td>
                                 <td>

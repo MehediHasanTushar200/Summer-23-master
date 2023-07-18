@@ -18,15 +18,15 @@
                                       </tr>
                             </thead>
                             <tbody>
-                      @foreach($category as $category)
+                      @foreach($category as $cat)
                               <tr>
                                 <th scope="row">{{$loop->iteration}}</th>
-                                <td>{{$category->name}}</td>
-                                <td>{{$category->description}}</td>
-                                <td>{{$category->status}}</td>
+                                <td>{{$cat->name}}</td>
+                                <td>{{$cat->description}}</td>
+                                <td>{{$cat->status}}</td>
                               
                                 <td>
-                                  <img style="width: 50px;" src="{{url('/uploads/category/'.$category->image)}}" alt="">
+                                  <img style="width: 50px;" src="{{url('/uploads/category/'.$cat->image)}}" alt="">
                                 </td>
 
                                 
@@ -52,5 +52,6 @@
                               
                             </tbody>
                           </table>
+                          {{$category->links()}}
 
 @endsection

@@ -2,7 +2,7 @@
 @extends('master')
 @section('content')
  <h1> Agent table</h1>
- <a  type="button" class="btn btn-success" href="">Create</a>
+ <a  type="button" class="btn btn-success" href="{{route('Agent.add')}}">Create</a>
 
 
                         <table class="table">
@@ -13,17 +13,25 @@
                                    <th scope="col">Email</th>
                                    <th scope="col">phone</th>
                                    <th scope="col">Address</th>
+                                   <th scope="col">Image</th>
+                                   <th scope="col">Action</th>
+
                                 </tr>
                             </thead>
 
 
                           <tbody>
                       
-                            <tr>  
-                              <td>01</td>
-                              <td>Tushar</td>
-                              <td>Tushar@gmail.com</td>
-                              <td>uttara,sector-10.</td>
+                            @foreach($agents as $age)
+                            <tr>
+                              <th scope="row">{{$loop->iteration}}</th>
+                              <td>{{$age->name}}</td>
+                              <td>{{$age->email}}</td>
+                              <td>{{$age->phone}}</td>
+                              <td>{{$age->address}}</td>
+                              <td>
+                                <img style="width: 50px;" src="{{url('/uploads/agent/'.$age->image)}}" alt="">
+                              </td>
                               
                               <td>
                                 <a  type="button" class="btn btn-warning" href="">Show</a>
@@ -31,7 +39,7 @@
                                 <a  type="button" class="btn btn-danger" href="">Delete</a>
                               </td>
                             </tr>
-
+                            @endforeach         
                           </tbody>
                         </table>
 

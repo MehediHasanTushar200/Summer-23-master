@@ -13,4 +13,14 @@ class Property_typecontroller extends Controller
  return view('backend.pages.Property_type.Property_type');
 
     }
+
+    Public function Property_type_create ()
+    {
+
+
+ return view('backend.pages.Property_type.Property_type_create');
+
+    }
+
 }
+

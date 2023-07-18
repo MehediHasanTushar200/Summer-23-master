@@ -2,13 +2,13 @@
 @extends('master')
 @section('content')
  <h1> Shedule table</h1>
- <a  type="button" class="btn btn-success" href="">Create</a>
+ <a  type="button" class="btn btn-success" href="{{route('Shedule.create')}}">Create</a>
 
 
                         <table class="table">
                             <thead>
                               <tr>
-                                 <th scope="col">Shedule Id Id</th>
+                                 <th scope="col">Shedule Id</th>
                                    <th scope="col">Property Id</th>
                                    <th scope="col">Date</th>
                                    <th scope="col">Time</th>

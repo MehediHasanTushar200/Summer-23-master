@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
@@ -10,4 +9,14 @@ class PropertyController extends Controller
     {
         return view('backend.pages.Property.Property');
     }
+
+    public function create()
+    {
+        return view('backend.pages.Property.Property_create');
+    }
+
+
 }
+
+
+

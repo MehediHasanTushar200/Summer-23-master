@@ -15,4 +15,14 @@ class SheduleController extends Controller
                          
                 
               }
+              public function Shedulenew()
+
+             {
+              
+
+                return view('backend.pages.Shedule.Shedule_create');
+                         
+                
+              }
+              
 }

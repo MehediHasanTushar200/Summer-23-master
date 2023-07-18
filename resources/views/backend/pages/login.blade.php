@@ -56,10 +56,10 @@
                            @csrf
                            
                            
-                           <img style="width: 70px;  hight:auto"  class="middle"  src="/uploads/login/saimun.jpg" alt="">
+                           <img style="width: 70px;  hight:auto"  class="middle"  src="/uploads/login/TUSHAR.PNG" alt="">
                                                  
 
-                            <h3 class="text-center text-info">Login</h3>
+                            <h3 class="text-center text-info">Admin Login</h3>
                             <div class="form-group">
                                 <label for="email" class="text-info">Email:</label><br>
                                 <input type="text" name="email" id="username" class="form-control">

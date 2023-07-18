@@ -2,7 +2,7 @@
 @extends('master')
 @section('content')
  <h1> Booking table table</h1>
- <a  type="button" class="btn btn-success" href="">Create</a>
+ <a  type="button" class="btn btn-success" href="{{route('Booking.create')}}">Create</a>
 
 
                         <table class="table">

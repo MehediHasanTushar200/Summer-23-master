@@ -15,4 +15,17 @@ class BookingController extends Controller
                          
                 
               }
+              public function Bookingnew()
+
+              {
+               
+ 
+                 return view('backend.pages.Booking.Booking_create');
+                          
+                 
+               }
+
+
+
 }
+

@@ -13,5 +13,13 @@ return view('backend.pages.Report.Report');
 
 
     }
-    
+ 
+    Public function Reportnew()
+    {
+
+        return view('backend.pages.Report.Report_create');
+        
+        
+            }
+
 }
