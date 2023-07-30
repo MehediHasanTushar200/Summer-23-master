@@ -10,7 +10,7 @@ class categorycontroller extends Controller
             public function categories()
 
              {
-                $category=category::paginate(5);
+                $category=category::paginate(3);
 
                 return view('backend.pages.category.category',compact('category'));
                          
@@ -78,6 +78,7 @@ class categorycontroller extends Controller
   
 
    }
+   
 
 }
 
@@ -93,8 +94,3 @@ class categorycontroller extends Controller
 
 
 
-
-//$category = Category::findOrFail($request);
-// $category->save();
-
-    //return redirect()->route('category.create')->with('success', 'Category updated successfully');

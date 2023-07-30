@@ -1,85 +1,109 @@
 <!-- ======= Header ======= -->
-<header id="header" class="header d-flex align-items-center">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+<!-- ======= Header ======= -->
+<header id="header" class="header d-flex align-items-center fixed-top">
+  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <img src="{{ asset('frontend/assets/img/header/TUSHAR.PNG') }}" alt="Logo">
+      <a href="{{route('home')}}" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <img src="{{ url::asset('frontend/assets/img/header/TUSHAR.PNG') }}" alt="Logo">
 
-        <h1>Tushar Real Estate Ltd<span>.</span></h1>
+          <h1><span>Tushar Real Estate Ltd.</span></h1>
       </a>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          
-          <li class="dropdown"><a href="#"><span>Category</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            
-            <ul>
-             
-              <li class="dropdown">
-                <a href="#"><span>Category</span>
-                   <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+        
+              <li><a href="{{route('about.us')}}">About</a></li>
 
-                   @foreach($cats as $cat)
-                         <li><a href="">{{$cat->name}}</a></li>
-                   @endforeach
+
+
+              <li class="dropdown">
+                <a href="#"><span>Project</span> 
+                  <i class="bi bi-chevron-down dropdown-indicator"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{route('show.project.type','Upcoming')}}">Upcoming</a></li>
+                  
+                  <li><a href="{{route('show.project.type','Ongoing')}}">Ongoing</a></li>
+                  <li><a href="{{route('show.project.type','Completed')}}">Completed</a></li>
+
+                </ul>
+                
+              </li>
+              
+
+
+
+              <li class="dropdown">
+                <a href="#"><span>Property</span> 
+                  <i class="bi bi-chevron-down dropdown-indicator"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{route('show.property.type','Luxury Properties')}}">Luxury Properties</a></li>                  
+                  <li><a href="{{route('show.property.type','Residential Properties')}}">Residential Properties</a></li>
+                  <li><a href="{{route('show.property.type','Commercial Properties')}}">Commercial Properties</a></li>
+                </ul>    
               </li>
 
-            <li><a href="#">Dropdown 2</a></li>
+              {{-- show.property.type --}}
+
+              <li class="dropdown">
+                <a href="#"><span>Appoinment</span> 
+                    <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                  <ul>
+                          @foreach($cats as $cat)
+                          <li><a href="">{{$cat->name}}</a></li>
+                          @endforeach
+                      </li>
+                      <li><a href="#">Dropdown 2</a></li>
+                  </ul>
+              </li>
+
+              <li><a href="{{ route('contact.us') }}">Contact</a></li>
+
+
+              <li><a type="button" class="btn btn-success" href="{{route('user.login')}}">Login</a></li>
+           
+
               
-            </ul>
-          </li>
-          <li><a href="{{ route('contact.us') }}">Contact</a></li>
-         
-          <li><a   type="button" class="btn btn-success" href="{{route('user.login')}}">Login</a></li>
-         
-         <li> <a  type="button" class="btn btn-success" href="{{route('user.registration')}}">Registration</a></li>
-        
-        </ul>
 
 
+              
+          </ul>
+          
       </nav><!-- .navbar -->
 
-    </div>
-  </header><!-- End Header -->
+  </div>
+</header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="hero">
+<!-- End Header -->
+ <style>
+  .header {
+    background-color: #000; /* Set your desired background color here */
+    padding: 15px 0;
+    z-index: 9999;
+    text-emphasis: none;
+}
 
-    <div class="info d-flex align-items-center">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-6 text-center">
-            <h2 data-aos="fade-down">Welcome to <span>
-                Tushar Real Estate Ltd.</span></h2>
-            <p data-aos="fade-up">Welcome to Tushar Real Estate Ltd., your trusted partner in the world of real estate. With our experienced team and personalized service, we make your property dreams a reality. and contact us today to experience the Tushar Real Estate Ltd. </p>
-            <a data-aos="fade-up" data-aos-delay="200" href="#get-started" class="btn-get-started">Get Started</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+.hero {
+    margin-top: 70px; /* Adjust this value to give space below the fixed header */
+}
 
-      <div class="carousel-item active" style="background-image: url(frontend/assets/img/header/picture1.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(frontend/assets/img/header/picture2.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(frontend/assets/img/header/picture3.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(frontend/assets/img/header/picture4.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(frontend/assets/img/header/picture5.jpg)"></div>
+.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
 
-      <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-      </a>
+    
+    /* Target the navigation links and remove text styling */
+    .navbar ul li a {
+      /* color: inherit; */
+      text-decoration: none;
+    }
 
-      <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-      </a>
 
-    </div>
-
-  </section>
+ </style>

@@ -1,32 +1,16 @@
+@extends('frontend.frontend_master')
+@section('content')
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<style>
-  body {
-  margin: 0;
-  padding: 0;
-  background-color: #17a2b8;
-  height: 100vh;
-}
-#login .container #login-row #login-column #login-box {
-  margin-top: 80px;
-  max-width: 600px;
-  height: 415px;
-  border: 1px solid #9C9C9C;
-  background-color: #EAEAEA;
-}
-#login .container #login-row #login-column #login-box #login-form {
-  padding: 20px;
-}
-#login .container #login-row #login-column #login-box #login-form #register-link {
-  margin-top: -85px;
-}
-</style>
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="{{URL::asset('frontend/assets/css/login.css')}}" rel="stylesheet">
 <!------ Include the above in your HEAD tag ---------->
 
 {{-- {{url('uploads/category/login/saimun.jpg')}}" --}}
@@ -45,9 +29,9 @@
 
               {{-- show lohout sucessfully message --}}
 
-                      @if(session()->has('msg'))
+                      {{-- @if(session()->has('msg'))
                       <p class="alert alert-success"> {{session()->get('msg')}}</p>
-                      @endif
+                      @endif --}}
 
                         <form id="login-form" class="form" action="{{route('user.dologin')}}" method="post">
                            @csrf
@@ -70,15 +54,12 @@
                                
                                
 
-                                <input type="submit"  class="btn btn-info btn-md" value="submit">
+                                <input type="submit"  class="btn btn-info btn-md" value="submit">   
                             </div>
+                            Or
+                            <br>
 
-
-                            {{-- <div id="register-link" class="text-right">
-                                <a href="#" class="text-info">Register here</a>
-                            </div> --}}
-
-
+                            <a type="button" class="btn btn-info" href="{{route('user.registration')}}">Registration</a>
 
                         </form>
                     </div>
@@ -87,3 +68,4 @@
         </div>
     </div>
 </body>
+@endsection

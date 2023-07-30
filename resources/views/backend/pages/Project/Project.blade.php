@@ -3,6 +3,10 @@
 @section('content')
  <h1> Project table</h1>
  <a  type="button" class="btn btn-success" href="{{route('Project.create')}}">Create</a>
+ <br>
+           @if(session()->has('msg'))
+                <p class="alert alert-success">{{session()->get('msg')}}</p>
+            @endif
 
 
                         <table class="table">
@@ -10,6 +14,7 @@
                               <tr>
                                  <th scope="col">Id</th>
                                    <th scope="col">Name</th>
+                                   <th scope="col">Project_type</th>
                                    <th scope="col">Description</th>
                                    <th scope="col">Location</th>
                                    <th scope="col">Image</th>
@@ -23,20 +28,35 @@
 
                           <tbody>
                       
-                            <tr>  
-                              {{-- <td>01</td>  
-                              <td>tushar</td>
-                              <td>student</td>
-                              <td>iubat</td>
-                              <td>1/2/3</td>
-                              <td>1/2/3</td> --}}
-                              <td>
-                                <a  type="button" class="btn btn-warning" href="">Show</a>
-                                <a  type="button" class="btn btn-success" href="">Edit</a>
-                                <a  type="button" class="btn btn-danger" href="">Delete</a>
-                              </td>
-                            </tr>
+      
+                              @foreach($projects as $project)
+                              <tr>
+                                <th scope="row">{{$loop->iteration}}</th>
+                                <td>{{$project->name}}</td>
+                                <td>{{$project->project_type}}</td>
+                                <td>{{$project->description}}</td>
+                                <td>{{$project->location}}</td>
+                                <td>
+                                  <img style="width: 50px;" src="{{url('/uploads/project/'.$project->image)}}" alt="">
+                                </td>
 
+                                 <td>{{$project->start_date}}</td>
+                                <td>{{$project->end_date}}</td>
+                              
+                                <td>
+                                  <a type="button" class="btn btn-warning" href="">
+                                    <i class="fa fa-eye"></i> <!-- Eye icon for "Show" -->
+                                  </a>
+                                  <a type="button" class="btn btn-success" href="{{route('project.edit',$project->id)}}">
+                                    <i class="fa fa-pencil"></i> <!-- Pencil icon for "Edit" -->
+                                  </a>
+                                  <a type="button" class="btn btn-danger" href="{{route('project.delete',$project->id)}}">
+                                    <i class="fa fa-trash"></i> <!-- Trash icon for "Delete" -->
+                                  </a>
+                                </td>
+                                
+                            </tr>
+                            @endforeach
                           </tbody>
                         </table>
 

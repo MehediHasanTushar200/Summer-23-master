@@ -64,14 +64,43 @@
     input[type="submit"]:hover {
       background-color: #e63b00;
     }
-  </style>
+    
+  .custom-dropdown {
+    /* Add your desired styles here */
+    width: 200px; /* Adjust width as needed */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 16px;
+    color: #333;}
+</style>
+
+  
 </head>
 <body>
-  <h1>Projct Create Form</h1>
-  <form action="{{route('Project.store')}}" method="post" >
+  <h1>Project Create Form</h1>
+    @if(session()->has('msg'))
+      <p class="alert alert-success">{{session()->get('msg')}}</p>
+    @endif
+  <form action="{{route('Project.store')}}" method="post" enctype="multipart/form-data" >
     @csrf
     <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
+    <input type="text" id="name" name="name" required> 
+
+   
+    <label for="project_type"> Select Projects type:</label>
+    <select id="project_type" name="project_type" class="custom-dropdown" required>
+    
+      <option >Upcoming</option>
+      <option >Ongoing</option>
+      <option >Completed</option>
+  
+  
+    </select>
+    
+
+
 
     <label for="description">Description:</label>
     <textarea id="description" name="description" rows="4" cols="50" required></textarea>
@@ -83,11 +112,11 @@
     <input type="file" id="image" name="image" required>
  
 
-    <label for="start-time">Start Time:</label>
-    <input type="datetime-local" id="start-time" name="start-time" required>
+    <label for="start_date">Start Time:</label>
+    <input type="datetime-local" id="start_date" name="start_date" >
 
-    <label for="end-time">End Time:</label>
-    <input type="datetime-local" id="end-time" name="end-time" required>
+    <label for="end_date">End Time:</label>
+    <input type="datetime-local" id="end_date" name="end_date" >
 
     <input type="submit" value="Submit">
   </form>

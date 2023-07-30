@@ -1,78 +1,98 @@
-<style>
+@extends('frontend.frontend_master')
+@section('content')
 
-
-
-
-body{
-    background-color: #525252;
-}
-.centered-form{
-	margin-top: 60px;
-}
-
-.centered-form .panel{
-	background: rgba(255, 255, 255, 0.8);
-	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
-}
-</style>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="{{URL::asset('frontend/assets/css/login.css')}}" rel="stylesheet">
 <!------ Include the above in your HEAD tag ---------->
 
-<div class="container">
-        <div class="row centered-form">
-        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-        	<div class="panel panel-default">
-        		<div class="panel-heading">
-              <img style="width: 70px;  hight:auto"  class="middle"  src="/uploads/login/TUSHAR.PNG" alt=""class="panel-title" >User Registration Form		    		
-			 	</div>
-			 			<div class="panel-body">
-							
-							@if(session()->has('msg'))
-							<p class="alert alert-success"> {{session()->get('msg')}}</p>
-							@endif
-	  
-			    		<form role="form" action="{{route('user.doregistration')}}" method="post">
-							{{-- @if($errors->any())
 
-							@foreach($errors->all() as $err)
-							<p class="alert alert-danger">{{$err}}</p>
-							@endforeach 
-							 --}}
-							@csrf
-			    			<div class="row">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-			    				<div class="col-xs-6 col-sm-6 col-md-6">
-			    					<div class="form-group">
-			                          <input type="text" name="firstname" id="firstname" class="form-control input-sm" placeholder="First Name">
-			    					</div>
-			    				</div>
-
-			    				<div class="col-xs-6 col-sm-6 col-md-6">
-			    					<div class="form-group">
-			    						<input type="text" name="lastname" id="lastname" class="form-control input-sm" placeholder="Last Name">
-			    					</div>
-			    				</div>
-			    			</div>
-
-			    			<div class="form-group">
-			    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
-			    			</div>
-
-			    			<div class="row">
+{{-- {{url('uploads/category/login/saimun.jpg')}}" --}}
+<body>
+ 
+   
+    <div id="login">
+       
+        <h3 class="text-center text-white pt-5"> </h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
 
 
-			    				<div class="col-xs-6 col-sm-6 col-md-6">
-			    					<div class="form-group">
-			    						<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
-			    					</div>
-			    				</div>
-			    			<input type="submit" value="Register" class="btn btn-info btn-block">
-			    		
-			    		</form>
-			    	</div>
-	    		</div>
-    		</div>
-    	</div>
+
+              {{-- show lohout sucessfully message --}}
+
+                      @if(session()->has('msg'))
+                      <p class="alert alert-success"> {{session()->get('msg')}}</p>
+                      @endif
+
+                        <form id="login-form" class="form" action="{{route('user.doregistration')}}" method="post">
+                           @csrf
+                           
+                           <img style="width: 70px;  hight:auto"  class="middle"  src="/uploads/login/TUSHAR.PNG" alt="">                           
+
+                            <h3 class="text-center text-info">User Registration</h3>
+							<div class="form-group">
+                                <label for="email" class="text-info">First Name:</label><br>
+                                <input type="text" name="firstname" id="username" class="form-control">
+                            </div>
+							<div class="form-group">
+                                <label for="email" class="text-info">Last Name:</label><br>
+                                <input type="text" name="lastname" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="text-info">Email:</label><br>
+                                <input type="text" name="email" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+
+
+                                {{-- <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br> --}}
+                               
+                               
+
+                                <input type="submit"  class="btn btn-info btn-md" value="submit">
+                            </div>
+
+
+                            {{-- <div id="register-link" class="text-right">
+                                <a href="#" class="text-info">Register here</a>
+                            </div> --}}
+
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</body>
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -11,8 +11,9 @@ class ProductController extends Controller
     public function products()
     {
 
-        $product=product::paginate(5);
-        $product=product::with('tushar')->paginate(5);
+        $product=product::paginate(3);
+        
+        $product=product::with('tushar')->paginate(3);
 
         return view('backend.pages.product.products',compact('product'));
         

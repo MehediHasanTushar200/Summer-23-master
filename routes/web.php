@@ -18,7 +18,8 @@ use App\Http\Controllers\AgentController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\SheduleController;
 use App\Http\Controllers\BookingController;
-
+use App\Http\Controllers\frontend\AboutusController;
+use App\Http\Controllers\frontend\ShowController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\UserController;
@@ -39,8 +40,18 @@ use App\Http\Controllers\UserController;
 
 //for frontend.................................
 //frontend home mage.......
+
 Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/all-products',[HomeController::class,'allproducts'])->name('website.all-products');
+
+//seachin work
+
+Route::get('/search',[HomeController::class,'search'])->name('search');
+
+//project show.....
+
+Route::get('/project-show/{id}',[HomeController::class,'projectshow'])->name('project.show');
+
 
 
 
@@ -65,6 +76,12 @@ Route::get('/user/contact',[ContactController::class,'contact'])->name('contact.
 Route::post('/user/send-message',[ContactController::class,'sendmail'])->name('conatct.sent');
 
 
+//About us page.......
+
+Route::get('/about-us',[AboutusController::class,'about'])->name('about.us');
+
+
+
 
 
 
@@ -73,16 +90,17 @@ Route::post('/user/send-message',[ContactController::class,'sendmail'])->name('c
 
 
 //for backend............Admin.....
+
 Route::get('/admin', function () {
     return view('master');
 });
 
 //log in log out....
 
-
 Route::get('/admin/login',[UserController::class,'login'])->name('admin.login');
 Route::post('/admin/login',[UserController::class,'loginn'])->name('admin.login.form');
 Route::post('/admin/logout',[UserController::class,'destroy'])->name('admin.logout.form');
+
 
 
 
@@ -98,11 +116,14 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 //dashboard route...
 Route::get('/', [DashboardController::class,'dashboard'])->name('dashboard');
 
+
+
 //.......................................................................................
 //category route....
 Route::get('/categories', [CategoryController::class,'categories'])->name('categories');
 Route::get('/category-create', [CategoryController::class,'create'])->name('category.create');
 Route::post('/category-store', [CategoryController::class,'store'])->name('category.store');
+
 
 //category edit route.....
 Route::get('/category-edit',[CategoryController::class,'edit'])->name('category.edit');
@@ -132,23 +153,38 @@ Route::get('/Business_setting', [Business_SettingController::class,'Business_set
 //Project route
 Route::get('/Project', [ProjectController::class,'Project'])->name('Project');
 Route::get('/Project-create',[ProjectController::class,'Project_create'])->name('Project.create');
-Route::post('/Project-store', [ProjectController::class,'Projectstore'])->name('Project.store');
+Route::post('/Project-store', [ProjectController::class,'projectstore'])->name('Project.store');
+
+//delet/edit/update
+Route::get('/project/delete/{id}',[ProjectController::class,'delete'])->name('project.delete');
+Route::get('/project/edit/{id}',[ProjectController::class,'edit'])->name('project.edit');
+Route::put('/project/update/{id}',[ProjectController::class,'update'])->name('project.update');
+// one table one route for upcoming/ongoing/complet
+Route::get('/projects/status/{type}', [ProjectController::class,'showproject'])->name('show.project.type');
+
+
+Route::get('/showmore/Project/{id}',[ProjectController::class,'showmore'])->name('project.showmore');
 //......................................................................................
 
 //.......................................................................................
-//Property_type....(route)
-Route::get('/Property_type', [Property_typeController::class,'Property_type'])->name('Property.type');
-Route::get('/Property_type_create',[Property_typeController::class,'Property_type_create'])->name('Property.type.create');
-//......................................................................................
 
-//.......................................................................................
+
 //Property....(route)
 
 Route::get('/Property', [PropertyController::class,'Property'])->name('Property');
-Route::get('/Property/create', [PropertyController::class,'create'])->name('Property.create');
+Route::get('/Property-create', [PropertyController::class,'create'])->name('Property.create');
+Route::post('/Property-store', [PropertyController::class,'store'])->name('Property.store');
+//delet/edit/update
+Route::get('/property/delete/{id}',[PropertyController::class,'delete'])->name('property.delete');
+Route::get('/property/edit/{id}',[PropertyController::class,'edit'])->name('property.edit');
+Route::put('/property/update/{id}',[PropertyController::class,'update'])->name('property.update');
+// one table one route for upcoming/ongoing/complet
+Route::get('/property/status/{type}', [PropertyController::class,'showproperty'])->name('show.property.type');
 //......................................................................................
 
+
 //.......................................................................................
+
 //Agent route
 Route::get('/Agent', [AgentController::class,'Agent'])->name('Agent');
 Route::get('/Agent/add', [AgentController::class,'Agentadd'])->name('Agent.add');
@@ -189,9 +225,7 @@ Route::get('/Booking/create', [BookingController::class,'Bookingnew'])->name('Bo
 //.......................................................................................
 // Report route
 Route::get('/Report', [ReportController::class,'Report'])->name('Report');
-Route::get('/Report/create', [ReportController::class,'Reportnew'])->name('Report.create');
-
-
+Route::get('/report/search', [ReportController::class,'reportSearch'])->name('Report.search');
 //......................................................................................
 
 

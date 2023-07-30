@@ -69,10 +69,22 @@
 </head>
 <body>
   <h1>Property Create Form</h1>
-  <form action="{{route('Property.create') }}" >
+
+
+  @if(session()->has('msg'))
+  <p class="alert alert-success">{{session()->get('msg')}}</p>
+  @endif
+  <form action="{{route('Property.store') }}" method="post" enctype="multipart/form-data">
     @csrf
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" required>
+    <label for="status">  Select Property Status:</label>
+    <select id="status" name="status" class="custom-dropdown" >
+    
+      <option >Luxury Properties</option>
+      <option >Residential Properties</option>
+      <option >Commercial Properties</option>
+  
+  
+    </select>
 
     <label for="description">Description:</label>
     <textarea id="description" name="description" rows="4" cols="50" required></textarea>
@@ -80,20 +92,13 @@
     <label for="address">Address:</label>
     <input type="text" id="address" name="address" required>
 
+    <label for="image">Image:</label>
+    <input type="file" id="image" name="image" required>
+
     <label for="price">Price:</label>
     <input type="text" id="price" name="price" required>
 
-    <label for="property-type">Property Type:</label>
-    <select id="property-type" name="property_type_id" required>
-      <option value="">Select Property Type</option>
-      <!-- Add options for property types here -->
-    </select>
-
-    <label for="project">Project:</label>
-    <select id="project" name="project_id" required>
-      <option value="">Select Project</option>
-      <!-- Add options for projects here -->
-    </select>
+   
 
     <input type="submit" value="Submit">
   </form>

@@ -9,6 +9,9 @@
         <title>Tushar Real Estate Ltd.</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="{{URL::asset('backend/css/styles.css')}}" rel="stylesheet" />
+{{-- for icon link eidte ,update ,delet --}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
 
@@ -74,6 +77,6 @@
         <script src="{{URL::asset('/backend/assets/demo/chart-area-demo.js')}}"></script>
         <script src="{{URL::asset('/backend/assets/demo/chart-bar-demo.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
+        <script src="{{URL::asset('js/datatables-simple-demo.js')}}"></script>
     </body>
 </html>

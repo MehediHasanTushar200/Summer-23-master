@@ -19,19 +19,16 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Business setting
                             </a>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{route('Project')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Project
                             </a>
-                            <a class="nav-link" href="">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Property Type
-                            </a>
-                            <a class="nav-link" href="">
+                            
+                            <a class="nav-link" href="{{route('Property')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Property
                             </a>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{route('Agent')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Agent
                             </a>
@@ -47,7 +44,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Booking
                             </a>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{route('Report')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Report
                             </a>

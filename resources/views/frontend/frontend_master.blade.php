@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{URL::asset('frontend/assets/img/favicon.png')}}" rel="icon">
+  <link href="{{URL::asset('frontend/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,15 +19,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="frontend/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="frontend/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="frontend/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="frontend/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="frontend/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="frontend/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="{{URL::asset('frontend/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{URL::asset('rontend/assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{URL::asset('frontend/assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
+  <link href="{{URL::asset('frontend/assets/vendor/aos/aos.css" rel="stylesheet')}}">
+  <link href="{{URL::asset('frontend/assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{URL::asset('frontend/assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="frontend/assets/css/main.css" rel="stylesheet">
+  <link href="{{URL::asset('frontend/assets/css/main.css')}}" rel="stylesheet">
+ 
 
   <!-- =======================================================
   * Template Name: UpConstruction
@@ -46,6 +47,11 @@
 
     {{-- header end--}}
 
+ {{-- slider start --}}
+
+           {{-- @include('frontend.fixed.slider') --}}
+
+    {{-- slider end--}}
     
   <!-- End Hero Section -->
 
@@ -70,21 +76,20 @@
 
 
 
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <div id="preloader"></div>
+  
 
   <!-- Vendor JS Files -->
-  <script src="frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="frontend/assets/vendor/aos/aos.js"></script>
-  <script src="frontend/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="frontend/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="frontend/assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="frontend/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="frontend/assets/vendor/php-email-form/validate.js"></script>
+  <script src="{{URL::asset('frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{URL::asset('frontend/assets/vendor/aos/aos.js')}}"></script>
+  <script src="{{URL::asset('frontend/assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{URL::asset('frontend/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{URL::asset('frontend/assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+  <script src="{{URL::asset('frontend/assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
+  <script src="{{URL::asset('frontend/assets/vendor/php-email-form/validate.js')}}"></script>
 
+  
   <!-- Template Main JS File -->
-  <script src="frontend/assets/js/main.js"></script>
+  <script src="{{URL::asset('frontend/assets/js/main.js')}}"></script>
 
 </body>
 

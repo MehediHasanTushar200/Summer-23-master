@@ -34,10 +34,17 @@
                               </td>
                               
                               <td>
-                                <a  type="button" class="btn btn-warning" href="">Show</a>
-                                <a  type="button" class="btn btn-success" href="">Edit</a>
-                                <a  type="button" class="btn btn-danger" href="">Delete</a>
+                                <a type="button" class="btn btn-warning" href="">
+                                  <i class="fa fa-eye"></i> <!-- Eye icon for "Show" -->
+                                </a>
+                                <a type="button" class="btn btn-success" href="">
+                                  <i class="fa fa-pencil"></i> <!-- Pencil icon for "Edit" -->
+                                </a>
+                                <a type="button" class="btn btn-danger" href="">
+                                  <i class="fa fa-trash"></i> <!-- Trash icon for "Delete" -->
+                                </a>
                               </td>
+                              
                             </tr>
                             @endforeach         
                           </tbody>

@@ -1,13 +1,14 @@
 @extends('master')
 @section('content')
 <h1>Create new product</h1>
+{{-- for showing message --}}
 
 @if(session()->has('msg'))
 <p class="alert alert-success"> {{session()->get('msg')}}</p>
 @endif 
 
 
-
+{{-- for cheking error --}}
 
 @if ($errors->any())
   @foreach ($errors->all() as $error)
