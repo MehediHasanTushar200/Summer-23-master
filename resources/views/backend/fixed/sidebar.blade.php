@@ -5,19 +5,9 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                
-                            <a class="nav-link" href="{{route('categories')}}">
+                            <a class="nav-link" href="{{route('Client')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Category
-                            </a>
-                       
-                            <a class="nav-link" href="{{route('products')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Product
-                            </a>
-                            <a class="nav-link" href="">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Business setting
+                                Client
                             </a>
                             <a class="nav-link" href="{{route('Project')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -28,19 +18,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Property
                             </a>
-                            <a class="nav-link" href="{{route('Agent')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Agent
-                            </a>
-                            <a class="nav-link" href="">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Client
-                            </a>
-                            <a class="nav-link" href="">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Shedule
-                            </a>
-                            <a class="nav-link" href="">
+                            
+                            
+                           
+                            <a class="nav-link" href="{{route('Booking')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Booking
                             </a>
@@ -48,11 +29,14 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Report
                             </a>
-                          
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{route('backend.contact.us')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Contact
+                            </a>
+                            {{-- <a class="nav-link" href="">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Contact us
-                            </a>
+                            </a> --}}
                        
                        
                            

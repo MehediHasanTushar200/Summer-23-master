@@ -26,9 +26,52 @@
   <link href="{{URL::asset('frontend/assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
   <link href="{{URL::asset('frontend/assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
 
+ {{-- toaster sms show --}}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+ <!-- Toastr JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+ {{-- toaster sms show --}}
+
   <!-- Template Main CSS File -->
   <link href="{{URL::asset('frontend/assets/css/main.css')}}" rel="stylesheet">
- 
+ {{-- toaster css --}}
+  <style>
+    /* Toastr Styling */
+    .toast {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .toast-success {
+        background-color: #51b74b;
+    }
+
+    .toast-error {
+        background-color: #e74c3c;
+    }
+
+    .toast-success .toast-title {
+        color: #51b74b;
+    }
+
+    .toast-error .toast-title {
+        color: #e74c3c;
+    }
+
+    .toast-success svg {
+        fill: #51b74b;
+    }
+
+    .toast-error svg {
+        fill: #e74c3c;
+    }
+ </style>
+ {{-- toaster css --}}
 
   <!-- =======================================================
   * Template Name: UpConstruction
@@ -41,42 +84,35 @@
 
 <body>
 
-    {{-- header start --}}
-
-           @include('frontend.fixed.header')
-
-    {{-- header end--}}
-
- {{-- slider start --}}
-
-           {{-- @include('frontend.fixed.slider') --}}
-
-    {{-- slider end--}}
-    
-  <!-- End Hero Section -->
+          {{-- header start --}}
+                @include('frontend.fixed.header')
+          {{-- header end--}}
 
 
 
 
            <!-- start #main -->
-
-
                @yield('content')
-
-
            <!-- End #main -->
 
 
 
           <!-- ======= Footer ======= -->
-
               @include('frontend.fixed.footer')
+          <!-- End Footer -->
+<!-- Your other content -->
 
-           <!-- End Footer -->
-
-
-
-  
+<script>
+  // Check if the 'toastr' variable is set in the session
+  @if(session()->has('toastr'))
+      // Show the Toastr notification
+      $(document).ready(function () {
+          var type = "{{ session('toastr.type') }}";
+          var message = "{{ session('toastr.message') }}";
+          toastr[type](message, type.charAt(0).toUpperCase() + type.slice(1));
+      });
+  @endif
+</script>
 
   <!-- Vendor JS Files -->
   <script src="{{URL::asset('frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

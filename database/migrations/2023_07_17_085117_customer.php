@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('firstname');
             $table->string('lastname');
-            $table->text('description')->nullable();
+            $table->text('present_address')->nullable();
+            $table->text('permanent_address')->nullable();
+            $table->text('phone_number')->nullable();
             $table->string('status',length:10)->default('active');
             $table->string('image')->nullable(); 
             $table->string('email'); 

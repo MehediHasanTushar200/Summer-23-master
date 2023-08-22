@@ -17,14 +17,15 @@
                 {{-- <span class="post-date">December 12</span> --}}
               </div>
               <div class="post-content d-flex flex-column">
+
                 <h3 class="post-title">{{$property->status}}</h5>
-                <h6>Description:-{{$property->description}}</h6>
+                <h6>Name:-{{$property->project->name}}</h6>
                 <h6>Location:-{{$property->address}}</h6>
-                <h6>Location:-{{$property->price}}</h6>
+                <h6>Price per squre feet:-{{$property->price}}  BDT</h6>
                 
                 <div class="meta d-flex align-items-center">     
               </div>
-                <a href="blog-details.html" class="readmore stretched-link"><span>Show more</span><i class="bi bi-arrow-right"></i></a>
+                <a href="{{route('property.view',$property->id)}}" class="readmore stretched-link"><span>view</span><i class="bi bi-arrow-right"></i></a>
               </div>
             </div>
           </div>

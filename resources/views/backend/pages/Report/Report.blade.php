@@ -40,7 +40,7 @@
           <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
-              <th scope="col">project_type</th>
+              <th scope="col">project_status</th>
               <th scope="col">description</th>
               <th scope="col">location</th>
               <th scope="col">Adding Date</th>
@@ -55,7 +55,7 @@
                               <tr>
                                 <th scope="row">{{$loop->iteration}}</th>
                                 <td>{{$project->name}}</td>
-                                <td>{{$project->project_type}}</td>
+                                <td>{{$project->status}}</td>
                                 <td>{{$project->description}}</td>
                                 <td>{{$project->location}}</td>
                                 <td>{{$project->created_at}}</td>

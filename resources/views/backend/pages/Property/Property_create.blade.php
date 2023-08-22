@@ -76,6 +76,14 @@
   @endif
   <form action="{{route('Property.store') }}" method="post" enctype="multipart/form-data">
     @csrf
+    
+    <label for="name">Name:</label>
+    <select type="text" id="name" name="project_id" required> 
+    @foreach ($projects as $project)
+        <option value="{{$project->id}}">{{$project->name}}</option>
+      @endforeach
+    </select>
+
     <label for="status">  Select Property Status:</label>
     <select id="status" name="status" class="custom-dropdown" >
     

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Support\Facades\Redis;
 
 class ProjectController extends Controller
@@ -17,19 +18,26 @@ class ProjectController extends Controller
      $allProjects=Project::latest()->take(4)->get();
      return view('frontend.pages.home',compact('allProjects'));
    }
+   //.............................................................................
    
     Public function Project()
+
     {
       $projects = Project::all();
+      // $projects =Project::where('name')->get();
       return view('backend.pages.project.Project',compact('projects'));
     }
+    //...........................................................................
 
       public function Project_create()
     
     {
-     return view('backend.pages.project.Project_create');
+      // $projects = Project::all();
+      $type=User::where('user_type','Employee')->get();
+     return view('backend.pages.project.Project_create',compact('type'));
     }
 
+    //.................................................................
 
      public function projectstore(Request $request)
 
@@ -37,7 +45,7 @@ class ProjectController extends Controller
                 //  dd($request->all());
                 $request->validate
               ([                 
-                'name'=>'required',
+                'name'=>'required',            
                 'start_date'=>'required',
                 'end_date'=>'required'
               ]);
@@ -55,21 +63,25 @@ class ProjectController extends Controller
          ([
  
            'name'=>$request->name,
-           'project_type'=>$request->project_type,
+           'status'=>$request->status,
            'description'=>$request->description,
            'location'=>$request->location,
+           'employee'=>$request->employee,
            'image'=>$fileName,
            'start_date'=>$request->start_date,
            'end_date'=>$request->end_date 
+           
+           
          ]);
          return redirect()->back()->with('msg',' Created successfully.');
   
         }
+//.............................................................................
 
                public function showproject($type)
                 {                   
                           // dd('$type');
-                  $projects=Project::where('project_type',$type)->get();
+                  $projects=Project::where('status',$type)->get();
                     
                     return view('frontend.pages.project.show', compact('projects'));
                 }
@@ -93,29 +105,32 @@ class ProjectController extends Controller
                    return view('backend.pages.project.edit',compact('projects'));
                 }
 
-//for update
+//for update..................................................................................
 public function update(Request $request, $id)
 {
     $request->validate([
-        'name' => 'required',
-        'start_date' => 'required',
-        'end_date' => 'required'
+        'name' => 'required'
+        
     ]);
 
     $projects = Project::find($id); 
     $projects->update([
         
       'name'=>$request->name,
-      'project_type'=>$request->project_type,
+      'status'=>$request->status,
       'description'=>$request->description,
       'location'=>$request->location,
-      'start_date'=>$request->start_date,
-      'end_date'=>$request->end_date 
+      // 'start_date'=>$request->start_date,
+      // 'end_date'=>$request->end_date ,
+      'extend_date'=>$request->extend_date 
+
     ]);
    
     return redirect()->back()->with('msg', 'Project updated successfully.');
      return redirect()->route('project.edit', $id);
 }
+
+//...........................................................................................
 public function showmore($id)
 
 {

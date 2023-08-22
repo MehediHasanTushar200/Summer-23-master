@@ -15,19 +15,13 @@
 
 {{-- {{url('uploads/category/login/saimun.jpg')}}" --}}
 <body>
- 
-   
-    <div id="login">
-       
+    <div id="login"> 
         <h3 class="text-center text-white pt-5"> </h3>
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-
-
-
-              {{-- show lohout sucessfully message --}}
+                         {{-- show lohout sucessfully message --}}
 
                       @if(session()->has('msg'))
                       <p class="alert alert-success"> {{session()->get('msg')}}</p>
@@ -37,41 +31,30 @@
                            @csrf
                            
                            <img style="width: 70px;  hight:auto"  class="middle"  src="/uploads/login/TUSHAR.PNG" alt="">                           
-
                             <h3 class="text-center text-info">User Registration</h3>
 							<div class="form-group">
                                 <label for="email" class="text-info">First Name:</label><br>
                                 <input type="text" name="firstname" id="username" class="form-control">
                             </div>
+
 							<div class="form-group">
                                 <label for="email" class="text-info">Last Name:</label><br>
                                 <input type="text" name="lastname" id="username" class="form-control">
                             </div>
+
                             <div class="form-group">
                                 <label for="email" class="text-info">Email:</label><br>
                                 <input type="text" name="email" id="username" class="form-control">
                             </div>
+
                             <div class="form-group">
                                 <label for="password" class="text-info">Password:</label><br>
                                 <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="form-group">
-
-
-                                {{-- <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br> --}}
-                               
-                               
-
+                                
                                 <input type="submit"  class="btn btn-info btn-md" value="submit">
                             </div>
-
-
-                            {{-- <div id="register-link" class="text-right">
-                                <a href="#" class="text-info">Register here</a>
-                            </div> --}}
-
-
-
                         </form>
                     </div>
                 </div>

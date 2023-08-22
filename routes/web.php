@@ -3,15 +3,11 @@
 use App\Http\Controllers\Business_SettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\frontend\HomeController;
-use App\Http\Controllers\frontend\ProductController as websiteProductController ;
 use App\Http\Controllers\frontend\Frontend_User_LoginController;
 use App\Http\Controllers\frontend\UserRegistrationController;
 use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\CustomerController;
-
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\Property_typeController;
 use App\Http\Controllers\AgentController;
@@ -23,9 +19,7 @@ use App\Http\Controllers\frontend\ShowController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\UserController;
-
-
-
+use App\Models\Customer;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,32 +31,39 @@ use App\Http\Controllers\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-//for frontend.................................
+//for frontend.........frontend...........frontend........frontend.....
+//for frontend.........frontend...........frontend........frontend.....
 //frontend home mage.......
-
 Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/all-products',[HomeController::class,'allproducts'])->name('website.all-products');
 
-//seachin work
-
+//seachin work..............................................................................
 Route::get('/search',[HomeController::class,'search'])->name('search');
 
-//project show.....
-
+//project show...................................................................................
 Route::get('/project-show/{id}',[HomeController::class,'projectshow'])->name('project.show');
 
+//our ongoing for frontend............................................................
+Route::get('/ongoingproject-show/{id}',[HomeController::class,'ongoingprojectshow'])->name('ongoingproject.show');
 
-
-
-//frontend user login....
-
+//frontend user login.................................................................
 Route::get('/user/login',[HomeController::class,'user'])->name('user.login');
 Route::post('/user/dologin',[CustomerController::class,'dologin'])->name('user.dologin');
 
+//middle ware for booking .....................................................................
+Route::group(['middleware'=>'frontendauth'],function(){
+   
+    Route::get('/Booking/create/{id}', [BookingController::class,'Bookingnew'])->name('Booking.create');
+    Route::get('/user/logout',[CustomerController::class,'userlogout'])->name('user.logout');
 
-
-//frontend user login.....
+//user profile
+    Route::get('/user/profile',[HomeController::class,'userProfile'])->name('user.login.profile');   
+});
+    
+//user profile............................................................................
+Route::get('/edit/profile', [CustomerController::class,'editprofile'])->name('edit.profile');
+Route::put('/save-profile/{id}', [CustomerController::class,'saveprofile'])->name('save.profile');
+//frontend user login.....................................................................
 
 Route::get('/user/registration',[HomeController::class,'registration'])->name('user.registration');
 Route::post('/user/doregistration',[CustomerController::class,'doregistration'])->name('user.doregistration');
@@ -70,80 +71,84 @@ Route::post('/user/doregistration',[CustomerController::class,'doregistration'])
 
 
 
-//frontend user conatct page route...
 
+
+//frontend user conatct page route..........................................
 Route::get('/user/contact',[ContactController::class,'contact'])->name('contact.us');
-Route::post('/user/send-message',[ContactController::class,'sendmail'])->name('conatct.sent');
+Route::get('/user/contact/backendtable',[ContactController::class,'backendcontact'])->name('backend.contact.us');
+Route::post('/user/contact/store',[ContactController::class,'frontendcontactstore'])->name('frontend.contact.us.store');
+
+// Route::post('/user/send-message',[ContactController::class,'sendmail'])->name('conatct.sent');
 
 
-//About us page.......
-
+//About us page......................................................................
 Route::get('/about-us',[AboutusController::class,'about'])->name('about.us');
 
 
+//one table one route for upcoming/ongoing/complet.....................................................
+Route::get('/projects/status/{type}', [ProjectController::class,'showproject'])->name('show.project.type');
+Route::get('/showmore/Project/{id}',[ProjectController::class,'showmore'])->name('project.showmore');
 
 
+//one table one route for upcoming/ongoing/complet..........................................................
+Route::get('/property/status/{type}', [PropertyController::class,'showproperty'])->name('show.property.type');
+Route::get('/view/Property/{id}',[PropertyController::class,'view'])->name('property.view');
 
 
-
-
-
-
-//for backend............Admin.....
-
-Route::get('/admin', function () {
-    return view('master');
-});
-
-//log in log out....
-
+//log in log out.....................................................................................
 Route::get('/admin/login',[UserController::class,'login'])->name('admin.login');
 Route::post('/admin/login',[UserController::class,'loginn'])->name('admin.login.form');
 Route::post('/admin/logout',[UserController::class,'destroy'])->name('admin.logout.form');
 
 
-
-
-//.........................................................................................
-//group of route....
-Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
-
-
-
-
+Route::get('/admin/employee/profile',[UserController::class,'employeeprofile'])->name('employee.ptofile');
 
 //.......................................................................................
-//dashboard route...
-Route::get('/', [DashboardController::class,'dashboard'])->name('dashboard');
-
-
-
-//.......................................................................................
-//category route....
-Route::get('/categories', [CategoryController::class,'categories'])->name('categories');
-Route::get('/category-create', [CategoryController::class,'create'])->name('category.create');
-Route::post('/category-store', [CategoryController::class,'store'])->name('category.store');
-
-
-//category edit route.....
-Route::get('/category-edit',[CategoryController::class,'edit'])->name('category.edit');
+// usercreate
+Route::get('admin/user/create',[UserController::class,'usercreate'])->name('user.create');
+Route::post('/admin/user/login',[UserController::class,'userloginn'])->name('admin.user.login.form');
+//......................................................................................
+// Booking route
+Route::get('/Booking', [BookingController::class,'Booking'])->name('Booking');
+Route::post('/Booking-store', [BookingController::class,'Bookingstore'])->name('Booking.store');
+// Route::get('/booking-dashboard', [BookingController::class,'showBookingDashboard']);
 
 
 
 
-
-//.......................................................................................
-//product route
-
-Route::get('/products', [ProductController::class,'products'])->name('products');
-Route::get('/product-create', [ProductController::class,'create'])->name('product.create');
-Route::post('/product-store', [ProductController::class,'store'])->name('product.store');
 //......................................................................................
 
 
-//.......................................................................................
-//Business-setting route
 
+
+
+
+
+//..................................Admin Prefix.......................................................
+//..................................Admin Prefix.......................................................
+//..................................Admin Prefix........................................................
+
+
+//for backend............Admin..........................................................................
+Route::get('/admin', function () {return view('master');});
+
+//log in log out.....................................................................................
+// Route::get('/admin/login',[UserController::class,'login'])->name('admin.login');
+// Route::post('/admin/login',[UserController::class,'loginn'])->name('admin.login.form');
+// Route::post('/admin/logout',[UserController::class,'destroy'])->name('admin.logout.form');
+
+    
+
+//group of route for admin....
+Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
+//......................................................................................
+
+//dashboard route...
+Route::get('/', [DashboardController::class,'dashboard'])->name('dashboard');
+
+//.....................................................................................
+
+//Business-setting route
 Route::get('/Business_setting', [Business_SettingController::class,'Business_setting'])->name('Business.setting');
 
 //......................................................................................
@@ -159,67 +164,40 @@ Route::post('/Project-store', [ProjectController::class,'projectstore'])->name('
 Route::get('/project/delete/{id}',[ProjectController::class,'delete'])->name('project.delete');
 Route::get('/project/edit/{id}',[ProjectController::class,'edit'])->name('project.edit');
 Route::put('/project/update/{id}',[ProjectController::class,'update'])->name('project.update');
-// one table one route for upcoming/ongoing/complet
-Route::get('/projects/status/{type}', [ProjectController::class,'showproject'])->name('show.project.type');
 
-
-Route::get('/showmore/Project/{id}',[ProjectController::class,'showmore'])->name('project.showmore');
 //......................................................................................
 
 //.......................................................................................
-
-
-//Property....(route)
-
+//Property....(route)................
 Route::get('/Property', [PropertyController::class,'Property'])->name('Property');
 Route::get('/Property-create', [PropertyController::class,'create'])->name('Property.create');
 Route::post('/Property-store', [PropertyController::class,'store'])->name('Property.store');
-//delet/edit/update
+//delet/edit/update.................
 Route::get('/property/delete/{id}',[PropertyController::class,'delete'])->name('property.delete');
 Route::get('/property/edit/{id}',[PropertyController::class,'edit'])->name('property.edit');
 Route::put('/property/update/{id}',[PropertyController::class,'update'])->name('property.update');
-// one table one route for upcoming/ongoing/complet
-Route::get('/property/status/{type}', [PropertyController::class,'showproperty'])->name('show.property.type');
 //......................................................................................
 
 
 //.......................................................................................
-
 //Agent route
 Route::get('/Agent', [AgentController::class,'Agent'])->name('Agent');
 Route::get('/Agent/add', [AgentController::class,'Agentadd'])->name('Agent.add');
 Route::post('/Agent-store', [AgentController::class,'agentstore'])->name('Agent.store');
-
-
 //......................................................................................
-
 
 
 //.......................................................................................
 // Client route
-Route::get('/Client', [ClientController::class,'Client'])->name('Client');
-
-
+Route::get('/Client', [CustomerController::class,'Client'])->name('Client');
 //......................................................................................
 
 
 //.......................................................................................
 // Shedule route
-
 Route::get('/Shedule', [SheduleController::class,'Shedule'])->name('Shedule');
 Route::get('/Shedule/create', [SheduleController::class,'Shedulenew'])->name('Shedule.create');
-
-
 //......................................................................................
-
-
-
-//.......................................................................................
-// Booking route
-Route::get('/Booking', [BookingController::class,'Booking'])->name('Booking');
-Route::get('/Booking/create', [BookingController::class,'Bookingnew'])->name('Booking.create');
-//......................................................................................
-
 
 
 //.......................................................................................
@@ -227,12 +205,4 @@ Route::get('/Booking/create', [BookingController::class,'Bookingnew'])->name('Bo
 Route::get('/Report', [ReportController::class,'Report'])->name('Report');
 Route::get('/report/search', [ReportController::class,'reportSearch'])->name('Report.search');
 //......................................................................................
-
-
-//.......................................................................................
-// Contact_us route
-
-
-//......................................................................................
-
 });

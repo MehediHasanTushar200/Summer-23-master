@@ -9,6 +9,7 @@
                             <thead>
                               <tr>
                                  <th scope="col"> Id</th>
+                                   <th scope="col">Name</th>
                                    <th scope="col">Status</th>
                                    <th scope="col">Description</th>
                                    <th scope="col">Address</th>
@@ -22,22 +23,21 @@
                           @foreach($properties as $property)
                             <tr>
                               <th scope="row">{{$loop->iteration}}</th>
+                              <td>{{$property->project->name}}</td>
                               <td>{{$property->status}}</td>
                               <td>{{$property->description}}</td>   
                               <td>{{$property->address}}</td> 
                               <td>
-                                <img style="width: 50px;" src="{{url('/uploads/property'.$property->image)}}" alt="">
+                                <img style="width: 50px;" src="{{url('/uploads/property/'.$property->image)}}" alt="">
                               </td>                           
                               <td>{{$property->price}}</td>    
 
                               <td>                             
-                                <a type="button" class="btn btn-warning" href="">
-                                  <i class="fa fa-eye"></i> <!-- Eye icon for "Show" -->
-                                </a>
+                                
                                 <a type="button" class="btn btn-success" href="{{route('property.edit',$property->id)}}">
                                   <i class="fa fa-pencil"></i> <!-- Pencil icon for "Edit" -->
                                 </a>
-                                <a type="button" class="btn btn-danger" href="{{route('property.delete',$property->id)}}"">
+                                <a type="button" class="btn btn-danger" href="{{route('property.delete',$property->id)}}">
                                   <i class="fa fa-trash"></i> <!-- Trash icon for "Delete" -->
                                 </a>
                               </td>

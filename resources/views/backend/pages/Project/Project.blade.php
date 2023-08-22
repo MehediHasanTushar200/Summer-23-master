@@ -14,12 +14,14 @@
                               <tr>
                                  <th scope="col">Id</th>
                                    <th scope="col">Name</th>
-                                   <th scope="col">Project_type</th>
+                                   <th scope="col">Status</th>
                                    <th scope="col">Description</th>
                                    <th scope="col">Location</th>
+                                   <th scope="col">Employee</th>
                                    <th scope="col">Image</th>
                                    <th scope="col">Start-date</th>
                                    <th scope="col">End-date</th>
+                                   <th scope="col">Extend_date</th>
                                    <th scope="col">Action</th>
 
                                 </tr>
@@ -33,20 +35,21 @@
                               <tr>
                                 <th scope="row">{{$loop->iteration}}</th>
                                 <td>{{$project->name}}</td>
-                                <td>{{$project->project_type}}</td>
+                                <td>{{$project->status}}</td>
                                 <td>{{$project->description}}</td>
                                 <td>{{$project->location}}</td>
+                                <td>{{$project->employee}}</td>
+
                                 <td>
                                   <img style="width: 50px;" src="{{url('/uploads/project/'.$project->image)}}" alt="">
                                 </td>
-
+                               
                                  <td>{{$project->start_date}}</td>
                                 <td>{{$project->end_date}}</td>
+                                <td>{{$project->extend_date}}</td>
                               
                                 <td>
-                                  <a type="button" class="btn btn-warning" href="">
-                                    <i class="fa fa-eye"></i> <!-- Eye icon for "Show" -->
-                                  </a>
+                                  
                                   <a type="button" class="btn btn-success" href="{{route('project.edit',$project->id)}}">
                                     <i class="fa fa-pencil"></i> <!-- Pencil icon for "Edit" -->
                                   </a>

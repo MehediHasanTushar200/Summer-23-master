@@ -90,8 +90,8 @@
     <input value="{{$projects->name}}" type="text" id="name" name="name" required> 
 
    
-    <label for="project_type"> Select Projects type:</label>
-    <select    id="project_type" name="project_type" class="custom-dropdown" required>
+    <label for="status"> Select Projects type:</label>
+    <select    id="status" name="status" class="custom-dropdown" required>
     
       <option >Upcoming</option>
       <option >Ongoing</option>
@@ -109,15 +109,19 @@
     <label for="location">Location:</label>
     <input value="{{$projects->location}}" type="text" id="location" name="location" required>
 
-    <label for="imaghe">Image:</label>
+    {{-- <label for="imaghe">Image:</label>
     <input  value="{{$projects->image}}" type="file" id="image" name="image" >
- 
+  --}}
 
-    <label for="start_date">Start Time:</label>
+    {{-- <label for="start_date">Start Time:</label>
     <input  value="{{$projects->start_date}}" type="datetime-local" id="start_date" name="start_date" >
 
     <label for="end_date">End Time:</label>
     <input value="{{$projects->end_date}}"type="datetime-local" id="end_date" name="end_date" >
+     --}}
+    <label for="extend_date">Extend date:</label>
+    <input  value="" type="datetime-local" id="extend_date" name="extend_date" >
+
 
     <input type="submit" value="Submit">
   </form>

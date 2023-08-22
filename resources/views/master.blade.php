@@ -21,54 +21,27 @@
    <!-- top bar end -->
 
             <!-- Navbar-->
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-
-                   
-                    <a  id="navbarDropdown" href="#" role="button"  data-bs-toggle="dropdown" aria-expanded="false">
-                         <img src="/uploads/login/TUSHAR.PNG" alt="Logo" class="logo-img"   role= "button"style="width: 50px;  hight:50px" >
-                         {{-- <i class="fas fa-user fa-fw"></i> --}}
-                         {{-- class="nav-link dropdown-toggle" --}}
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <form action="{{route('admin.logout.form')}}" method="post">
-                            @csrf
-                             <li><button type="submit" class="dropdown-item" >Logout</button></li>
-                        </form>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+            
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
-                
-
-                            <!-- sidebar start -->
-
-                                  @include('backend.fixed.sidebar')
-
-                            <!-- sidebar end -->
-
+                <!-- sidebar start -->
+                     @include('backend.fixed.sidebar')
+                <!-- sidebar end -->
             </div>
 
             <div id="layoutSidenav_content">
-                <main>
-                    
-                                    <!-- dashboard start -->
+                <main>  
+                     <!-- dashboard start -->
 
-                                                 @yield('content')
+                        @yield('content')
 
-                                    <!-- dashboard end -->
-
+                     <!-- dashboard end -->
                 </main>
-                                         <!-- footer start -->
+                         <!-- footer start -->
 
-                                               @include('backend.fixed.footer')
+                            @include('backend.fixed.footer')
                                         
-                                        <!-- footer enb -->
+                         <!-- footer enb -->
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

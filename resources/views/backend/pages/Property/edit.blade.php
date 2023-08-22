@@ -78,6 +78,10 @@
   <form action=" {{route('property.update',$properties->id)}}" method="post" enctype="multipart/form-data">
     @csrf
     @method('put')
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" >   
+
     <label for="status">  Select Property Status:</label>
     <select id="status" name="status" class="custom-dropdown" >
     

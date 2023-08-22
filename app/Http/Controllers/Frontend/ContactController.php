@@ -5,7 +5,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
@@ -27,4 +27,38 @@ class ContactController extends Controller
 
     //     return redirect()->back()->with('msg', 'Your message sent successfully');
     // }
-}
+
+    public function backendcontact()
+
+    {
+        $contacts=Contact::all();
+        return view('backend.pages.Contact_us.Contact',compact('contacts'));
+    }
+  
+
+   public function frontendcontactstore(Request $request)
+   
+   
+   {
+
+
+    Contact::create 
+    ([
+
+      'name'=>$request->name,
+      'email'=>$request->email,
+      'subject'=>$request->subject,
+      'message'=>$request->message
+      
+      
+      
+      
+    ]);
+    return redirect()->back()->with('msg',' Created successfully.');
+
+   }
+
+
+   }
+
+

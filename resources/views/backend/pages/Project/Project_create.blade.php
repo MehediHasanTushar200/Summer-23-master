@@ -86,11 +86,10 @@
   <form action="{{route('Project.store')}}" method="post" enctype="multipart/form-data" >
     @csrf
     <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required> 
 
-   
-    <label for="project_type"> Select Projects type:</label>
-    <select id="project_type" name="project_type" class="custom-dropdown" required>
+    <input type="text" id="name" name="name" required> 
+    <label for="status"> Select Projects type:</label>
+    <select id="status" name="status" class="custom-dropdown" required>
     
       <option >Upcoming</option>
       <option >Ongoing</option>
@@ -117,6 +116,18 @@
 
     <label for="end_date">End Time:</label>
     <input type="datetime-local" id="end_date" name="end_date" >
+
+    <label for="employee">Select Emplyee:</label>
+    <select id="employee" name="employee" class="custom-dropdown" required>
+      @foreach ($type as $ty)
+        <option value="{{$ty->name}}">{{$ty->name}}</option>
+      @endforeach
+      
+    </select>
+
+    <br>
+    {{-- <label for="extend_date">Extend date:</label>
+    <input  value="" type="datetime-local" id="extend_date" name="extend_date" > --}}
 
     <input type="submit" value="Submit">
   </form>

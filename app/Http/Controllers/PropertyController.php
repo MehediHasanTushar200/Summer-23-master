@@ -4,20 +4,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Property;
 use App\Models\Property_types;
+use App\Models\Project;
 
 class PropertyController extends Controller
 {
     public function Property()
     {
-        $properties = Property::all();
+        $properties = Property::with('project')->get();
        
         return view('backend.pages.Property.Property',compact('properties'));
     }
 
     public function create()
     {
-    
-        return view('backend.pages.Property.Property_create');
+        // $porperties=Property::all();
+        $projects = Project::all();
+        return view('backend.pages.Property.Property_create',compact('projects'));
     }
 
 
@@ -36,19 +38,15 @@ class PropertyController extends Controller
       }
 
         $request->validate
-                ([
-                     
-             
+                ([            
                 'address'=>'required',
                 'price'=>'required'
-
-
  
                 ]);
 
                 Property::create 
                 ([
-        
+                  'project_id'=>$request->project_id,
                   'status'=>$request->status,
                   'description'=>$request->description,
                   'address'=>$request->address,
@@ -73,7 +71,7 @@ class PropertyController extends Controller
 
    }
 
-
+//....................................................................................
 
  public function edit($id)
    {
@@ -85,7 +83,7 @@ class PropertyController extends Controller
 
    }
 
-
+//....................................................................................
 
    public function update(Request $request, $id)
    {
@@ -97,7 +95,7 @@ class PropertyController extends Controller
   $properties = Property::find($id); 
 
   $properties->update([
-      
+    'name'=>$request->name,
     'status'=>$request->status,
     'description'=>$request->description,
     'address'=>$request->address,
@@ -119,7 +117,18 @@ class PropertyController extends Controller
     return view('frontend.pages.property.show', compact('properties'));
 
    }
+//..............................................................
 
+public function view($id)
+
+{
+
+  $properties=Property::find($id);
+  
+  return view('frontend.pages.property.view',compact('properties'));
+
+
+}
 
 }
 

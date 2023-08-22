@@ -12,13 +12,11 @@
           <h2 data-aos="fade-down">Welcome to <span>
               Tushar Real Estate Ltd.</span></h2>
           {{-- search button --}}
-              <form action="{{route('search')}}">
-              
+              <form action="{{route('search')}}" method="get">
               <div class="input-group rounded">
-              
-                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <input type="text"  name="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                 <span class="input-group-text border-0" id="search-addon">
-                  <i type="button" class="fas fa-search"></i>
+                  <button type="submit"  type="button" class="fas fa-search"></button>
                 </span>
               
               </div>
@@ -57,7 +55,6 @@
 
 
 
-    <!-- ======= Get Started Section ======= -->
     <section id="get-started" class="get-started section-bg">
       <div class="container">
 
@@ -98,11 +95,11 @@
                 </div>
               </div>
             </form>
-          </div><!-- End Quote Form -->
+          </div>
         </div>
       </div>
-    </section><!-- End Get Started Section -->
-
+    </section> 
+ 
 
 
 {{-- card for 6 card add with logo green colour --}}
@@ -444,24 +441,24 @@
       }
     
       .card-img-top {
-        height: 200px; /* Adjust the height as needed */
-        object-fit: cover; /* Ensures the image fills the entire container */
+        height: 200px; 
+        object-fit: cover; 
       }
     
       .card-body {
-        height: 150px; /* Adjust the height as needed */
+        height: 150px; 
       }
     </style>
 
 
-
+{{-- 
 <section id="services" class="services section-bg">
   <div class="container" data-aos="fade-up">   
     <div class="section-header">
       <h2>Project</h2>
       <p>Your Trusted Real Estate Partner</p>
     </div> 
-    <div class="row gy-4">
+    <div class="row gy-4"> --}}
     
       {{-- @foreach($allprojects as $Project)
       <div class="col-md-3"> <!-- Use col-md-3 to display four cards in one row on medium-sized screens -->
@@ -498,9 +495,9 @@
         }       
         </style>           
      @endforeach --}}
-    </div>   
+    {{-- </div>   
   </div>
-</section>
+</section> --}}
 
 {{-- end show card karim  tower------------------------------------------------------------------------ --}}
     <!-- ======= Our Projects Section ======= -->
@@ -545,21 +542,19 @@
           <div class="post-item position-relative h-100">
             <div class="post-img position-relative overflow-hidden">
               <img src="{{url('/uploads/project/'.$project->image)}}" class="img-fluid" alt="">
-              <span class="post-date">December 12</span>
             </div>
+
+
             <div class="post-content d-flex flex-column">
-              <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis</h3>
-              <div class="meta d-flex align-items-center">
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span>
-                </div>
-                <span class="px-3 text-black-50">/</span>
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-folder2"></i> <span class="ps-2">Politics</span>
-                </div>
-              </div>
-              <hr>
-              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+              <h3 class="post-title">{{$project->name}}</h3>
+              <h6>Location:-{{$project->location}}</h6>
+              <h6>Employee:-{{$project->employee}}</h6>
+              <h6>Start Time:-{{$project->start_date}}</h6>
+              <h6>End Time:-{{$project->end_date}}</h6>
+             
+              
+              
+            <a href="{{route('ongoingproject.show',$project->id)}}" class="readmore stretched-link"><span>View</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>

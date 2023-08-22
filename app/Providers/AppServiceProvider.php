@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-use App\Models\category;
+
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\Paginator as PaginationPaginator;
 use Illuminate\Support\Facades\view;
@@ -23,8 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $categories=category::all();
-        view::share('cats',$categories);
+       
+       
         
         Paginator::useBootstrap();
         

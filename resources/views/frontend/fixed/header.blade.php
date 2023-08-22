@@ -1,11 +1,11 @@
 <!-- ======= Header ======= -->
 <!-- ======= Header ======= -->
 <header id="header" class="header d-flex align-items-center fixed-top">
+  
   <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="{{route('home')}}" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.png" alt=""> -->
+         
           <img src="{{ url::asset('frontend/assets/img/header/TUSHAR.PNG') }}" alt="Logo">
 
           <h1><span>Tushar Real Estate Ltd.</span></h1>
@@ -14,24 +14,26 @@
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
+       
           <ul>
         
+
+            
+            <li><a href="{{route('home')}}">Home</a></li>
               <li><a href="{{route('about.us')}}">About</a></li>
 
 
 
               <li class="dropdown">
-                <a href="#"><span>Project</span> 
+                 <a href="#"><span>Project</span> 
                   <i class="bi bi-chevron-down dropdown-indicator"></i>
-                </a>
+                 </a>
+
                 <ul class="dropdown-menu">
-                  <li><a href="{{route('show.project.type','Upcoming')}}">Upcoming</a></li>
-                  
+                  <li><a href="{{route('show.project.type','Upcoming')}}">Upcoming</a></li> 
                   <li><a href="{{route('show.project.type','Ongoing')}}">Ongoing</a></li>
                   <li><a href="{{route('show.project.type','Completed')}}">Completed</a></li>
-
-                </ul>
-                
+                </ul>               
               </li>
               
 
@@ -48,36 +50,43 @@
                 </ul>    
               </li>
 
-              {{-- show.property.type --}}
-
-              <li class="dropdown">
-                <a href="#"><span>Appoinment</span> 
-                    <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                  <ul>
-                          @foreach($cats as $cat)
-                          <li><a href="">{{$cat->name}}</a></li>
-                          @endforeach
-                      </li>
-                      <li><a href="#">Dropdown 2</a></li>
-                  </ul>
-              </li>
-
+              
+  
               <li><a href="{{ route('contact.us') }}">Contact</a></li>
 
-
-              <li><a type="button" class="btn btn-success" href="{{route('user.login')}}">Login</a></li>
-           
-
+                         
+              {{-- <li>
+                <a type="button"  href="{{ route('user.login') }}">
+                  <i class="fas fa-user"></i> Login
+                </a>
+              </li>  --}}
+              @if (auth('customer')->user())
+             
+              <li class="dropdown">
+                <a href="{{route('user.login.profile')}}">User Profile</a>
+                <ul class="dropdown-menu">
+                  <li><a type="button" href="{{route('user.logout')}}">
+                    <i class="fas fa-key"></i> Logout
+                  </a></li>                  
+                                
+                </ul>    
+              </li>
+              @else
+                
               
-
-
-              
-          </ul>
-          
-      </nav><!-- .navbar -->
-
+              <li>
+                <a type="button" href="{{ route('user.login') }}"><span>Login</span> 
+                  <i class="fas fa-user"></i>
+                </a>
+              </li>
+                
+              @endif
+          </ul>         
+      </nav>
+      <!-- .navbar -->
   </div>
-</header><!-- End Header -->
+</header>
+<!-- End Header -->
 
 <!-- End Header -->
  <style>
@@ -104,6 +113,4 @@
       /* color: inherit; */
       text-decoration: none;
     }
-
-
  </style>

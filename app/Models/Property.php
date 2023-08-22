@@ -10,10 +10,10 @@ class Property extends Model
     use HasFactory;
     protected $guarded=[];
     
-    public function tushar()
+    public function project()
     {
     
-    return $this->belongsTo(Property_types::class,'property_id','id');
+    return $this->belongsTo(Project::class,'project_id','id');
     
     }
 }

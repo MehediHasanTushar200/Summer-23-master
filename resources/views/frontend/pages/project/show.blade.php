@@ -14,17 +14,18 @@
             <div class="post-item position-relative h-100">
               <div class="post-img position-relative overflow-hidden">
                 <img src="{{url('/uploads/project/'.$project->image)}}" class="img-fluid" alt="">
-                {{-- <span class="post-date">December 12</span> --}}
+                
               </div>
               <div class="post-content d-flex flex-column">
                 <h3 class="post-title">{{$project->name}}</h5>
                 <h6>Description:-{{$project->description}}</h6>
                 <h6>Location:-{{$project->location}}</h6>
+                <h6>Employee:-{{$project->employee}}</h6>
                 <h6>Start Time:-{{$project->start_date}}</h6>
                 <h6>End Time:-{{$project->end_date}}</h6>
                 <div class="meta d-flex align-items-center">     
               </div>
-                <a href="{{route('project.showmore',$project->id)}}" class="readmore stretched-link"><span>Show more</span><i class="bi bi-arrow-right"></i></a>
+                <a href="{{route('project.showmore',$project->id)}}" class="readmore stretched-link"><span>View</span><i class="bi bi-arrow-right"></i></a>
               </div>
             </div>
           </div>

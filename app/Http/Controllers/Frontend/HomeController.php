@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\frontend;
-use App\Models\category;
-use App\Models\product;
+
 
 use App\Http\Controllers\Controller;
 
@@ -15,20 +14,12 @@ class HomeController extends Controller
     public function home()
     {
             // $allprojects=Project::where(4)->get();
-            $projects=Project::where('project_type','Ongoing')->get();
+            $projects=Project::where('status','Ongoing')->get();
             return view('frontend.fixed.home',compact('projects'));
 
     }
 
-
-
-
-
-    
-    //............
-  
-
-public function registration()
+     public function registration()
  
     {
 
@@ -38,28 +29,24 @@ public function registration()
 
     }
 
- public function user() 
+     public function user() 
           {
 
+               
               return view('frontend.pages.user_login');
        
            }
 
 
-    public function projectshow($id) 
+     public function projectshow($id) 
           {
             $project=Project::find($id);
-              return view('frontend.pages.show',compact('project'));
+            return view('frontend.pages.show',compact('project'));
        
-           }
-          
+          }
 
-
-
-
-
-           public function search()
-           {
+     public function search()
+          {
        
              $searchKey=request()->search;
        
@@ -70,18 +57,48 @@ public function registration()
              //LIKE % Tushar      ---->matching from right side
              //LIKE Tushar %      ----->matching from left side
        
-             $allprojects=Project::where('location','LIKE','%'.$searchKey.'%')->get();
+             $projects=Project::where('location','LIKE',$searchKey.'%')->get();
+          //    dd($searchKey);
        
             
-             return view('frontend.pages.search-project',compact('allprojects','searchKey'));
-       
-       
+             return view('frontend.pages.search-project',compact('projects','searchKey'));      
              
-           }
+          }
+
+
+
+          public function ongoingprojectshow($id)
+          
+          
+          {
+
+
+               $project=Project::find($id);
+               return view('frontend.pages.ourongoing.ongoingfrontend',compact('project'));
+
+
+          }
+    
+
+          // user profile
 
 
 
 
 
+          
+     public function userProfile()
+ 
+     {
+ 
+ 
+       return view('frontend.pages.userprofile.userprofile');
+ 
+ 
+     }
+     
     
 }
+
+
+
