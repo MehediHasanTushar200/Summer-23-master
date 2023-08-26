@@ -2,6 +2,10 @@
 @section('content')
 
 <div class="container-fluid px-4">
+
+
+
+    @if(auth()->user()->user_type =='admin')
                         <h1 class="mt-4">Dashboard</h1>
                         {{-- <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
@@ -23,7 +27,7 @@
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Property</div>
-                                    <h6>The Total Property is: </h6> <h1></h1>
+                                    <h6>Total Property is: </h6> <h1></h1>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -41,9 +45,11 @@
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body" class="icon">Report</div>
+                                    <div class="card-body" class="icon">Client  <i class="fa fa-user" aria-hidden="true"></i></div>
+                                    
+                                    <h6>Total Client is: </h6> <h1>{{$customers}}</h1>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-white stretched-link" href="{{route('Client')}}">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -62,6 +68,8 @@
                                         <th scope="col">Email</th>
                                         <th scope="col">Address</th>
                                         <th scope="col">Apartment</th>
+                                        <th scope="col">Project name</th>
+
                                         <th scope="col">Visit date</th>
                                         <th scope="col">Visit time</th>
                                         <th scope="col">Comment</th>
@@ -76,6 +84,7 @@
                                         <td>{{ $booking->contact_number }}</td>
                                         <td>{{ $booking->email }}</td>
                                         <td>{{ $booking->address }}</td>
+                                        <td>{{ $booking->status }}</td>
                                         <td>{{ $booking->appartment_name }}</td>
                                         <td>{{ $booking->visit_date }}</td>
                                         <td>{{ $booking->visit_time }}</td>
@@ -85,5 +94,6 @@
                                 </tbody>
                             </table>      
                         </div>
-                    </div>           
+                    </div>  
+                    @endif         
 @endsection

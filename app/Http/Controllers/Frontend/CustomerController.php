@@ -11,9 +11,7 @@ class CustomerController extends Controller
     public function doregistration(Request $request)
     {
 
-        
-
-
+ 
         $request->validate
 
         ([
@@ -115,10 +113,25 @@ public function saveprofile(Request $request,$id)
 }
 
 
-public function Client()
-{
-$customers=Customer::all();
-return view('backend.pages.client.client',compact('customers'));
+        public function Client()
 
-}
+
+        {
+            $customers=Customer::all();
+
+        return view('backend.pages.client.client',compact('customers'));
+
+        }
+
+        public function delete($id)
+        {
+
+        $customers=Customer::find($id);
+        $customers->delete();
+        return redirect()->back()->with('msg','customer Deleted successfully.');
+
+
+        }
+
+
 }

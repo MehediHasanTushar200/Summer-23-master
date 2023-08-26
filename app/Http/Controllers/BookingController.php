@@ -68,7 +68,15 @@ Booking::create
         }
 
         
-
+        public function delete($id)
+        {
+     
+         $bookings=Booking::find($id);
+         $bookings->delete();
+         return redirect()->back()->with('msg','Product Deleted successfully.');
+     
+     
+        }
 
 
 

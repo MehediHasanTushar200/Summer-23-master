@@ -1,52 +1,9 @@
 @extends('frontend.frontend_master')
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Tushar Real Estate Ltd.</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: UpConstruction
-  * Updated: May 30 2023 with Bootstrap v5.3.0
-  * Template URL: https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
-
-
-  <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/frontend/assets/img/contact/image1.jpg');">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
         <h2>Contact</h2>
@@ -65,7 +22,7 @@
         <div class="row gy-4">
           <div class="col-lg-6">
             <div class="info-item  d-flex flex-column justify-content-center align-items-center">
-              <i class="bi bi-map"></i>
+              <i class="fa fa-map"></i>
               <h3>Our Address</h3>
               <p>241,karim tower,uttara faidabad,sector:6,road:10</p>
             </div>
@@ -73,7 +30,7 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="info-item d-flex flex-column justify-content-center align-items-center">
-              <i class="bi bi-envelope"></i>
+              <i class="fa fa-envelope"></i>
               <h3>Email Us</h3>
               <p>tushar@gmail.com</p>
             </div>
@@ -81,7 +38,7 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="info-item  d-flex flex-column justify-content-center align-items-center">
-              <i class="bi bi-telephone"></i>
+              <i class="fa fa-phone"></i>
               <h3>Call Us</h3>
               <p>+880 1947481037</p>
             </div>
@@ -91,16 +48,16 @@
         </div>
 
         <div class="row gy-4 mt-1">
-
+{{-- 
           <div class="col-lg-6 ">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
-          </div>
+            <iframe src="https://www.google.com/maps/place/Heaven+City-32/@23.8743678,90.412291,3a,86y,50.36h,86.95t/data=!3m6!1e1!3m4!1sA6PU2D9vj-SKj0nYhg64Lw!2e0!7i13312!8i6656!4m25!1m15!4m14!1m6!1m2!1s0x3755c4249dd4639d:0x1139c527894ee9a6!2sGreen+Spa+%7C+Thai+Massage+Spa,+8+Rabindra+Sarani,+Dhaka+1230!2m2!1d90.3984444!2d23.8679728!1m6!1m2!1s0x3755c4335bbfdf99:0xd2ef5342f4128220!2sFaidabad+Chowrasta,+Dhaka+1230!2m2!1d90.4117014!2d23.8753131!3m8!1s0x3755c57f0138b9c1:0x5279f895889ea993!8m2!3d23.8744656!4d90.4122998!10e5!14m1!1BCgIgAQ!16s%2Fg%2F11k6xrf6sb?entry=ttu" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+          </div> --}}
           <!-- End Google Maps -->
 
           <div class="col-lg-6">
             <form action="{{route('frontend.contact.us.store')}}" method="post" role="form" class="php-email-form">
               @csrf
-              <div class="row gy-4">
+              <div class="row gy-4" >
                 <div class="col-lg-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                 </div>
@@ -127,28 +84,5 @@
 
       </div>
     </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
-
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
-</html>
 
 @endsection

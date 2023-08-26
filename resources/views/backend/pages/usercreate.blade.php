@@ -61,6 +61,7 @@
 
                             <div class="form-group">
                                 <input type="submit" class="btn btn-info btn-md" value="Create">
+                                <a href="{{route('admin.login')}}" class="btn btn-info btn-md" >Back</a>
                             </div>
 
                         </form>

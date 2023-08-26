@@ -18,7 +18,7 @@
               </div>
               <div class="post-content d-flex flex-column">
                 <h3 class="post-title">{{$project->name}}</h5>
-                <h6>Description:-{{$project->description}}</h6>
+               
                 <h6>Location:-{{$project->location}}</h6>
                 <h6>Employee:-{{$project->employee}}</h6>
                 <h6>Start Time:-{{$project->start_date}}</h6>

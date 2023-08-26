@@ -39,7 +39,11 @@ class HomeController extends Controller
 
 
      public function projectshow($id) 
+    
           {
+            $project =Project::where('status')->count();
+
+            
             $project=Project::find($id);
             return view('frontend.pages.show',compact('project'));
        

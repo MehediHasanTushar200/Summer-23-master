@@ -16,6 +16,7 @@
                                    <th scope="col">Email</th>
                                    <th scope="col">Subject</th>
                                    <th scope="col">Message</th>
+                                   <th scope="col">Action</th>
 
                                    
                                 </tr>
@@ -34,17 +35,15 @@
                                 <td>{{$contact->message}}</td>
                               
                                 
-                                {{-- <td>
-                                  <a type="button" class="btn btn-warning" href="">
-                                    <i class="fa fa-eye"></i>
-                                  </a>
-                                  <a type="button" class="btn btn-success" href="">
-                                    <i class="fa fa-pencil"></i> 
-                                  </a>
-                                  <a type="button" class="btn btn-danger" href="">
+                                <td>
+
+                                  <a type="button" class="btn btn-danger" href="{{route('backend.contact.delete',$contact->id)}}">
                                     <i class="fa fa-trash"></i> 
                                   </a>
-                                </td> --}}
+                                
+                                </td>
+                                 
+                                
                                 
                             </tr>
                            @endforeach

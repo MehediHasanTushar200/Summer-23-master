@@ -2,7 +2,9 @@
 @extends('master')
 @section('content')
  <h1> Project table</h1>
+ @if(auth()->user()->user_type =='admin')
  <a  type="button" class="btn btn-success" href="{{route('Project.create')}}">Create</a>
+ @endif
  <br>
            @if(session()->has('msg'))
                 <p class="alert alert-success">{{session()->get('msg')}}</p>
@@ -22,7 +24,9 @@
                                    <th scope="col">Start-date</th>
                                    <th scope="col">End-date</th>
                                    <th scope="col">Extend_date</th>
+                                   @if(auth()->user()->user_type =='admin')
                                    <th scope="col">Action</th>
+                                   @endif
 
                                 </tr>
                             </thead>
@@ -49,7 +53,7 @@
                                 <td>{{$project->extend_date}}</td>
                               
                                 <td>
-                                  
+                                  @if(auth()->user()->user_type =='admin')
                                   <a type="button" class="btn btn-success" href="{{route('project.edit',$project->id)}}">
                                     <i class="fa fa-pencil"></i> <!-- Pencil icon for "Edit" -->
                                   </a>
@@ -57,6 +61,7 @@
                                     <i class="fa fa-trash"></i> <!-- Trash icon for "Delete" -->
                                   </a>
                                 </td>
+                                @endif
                                 
                             </tr>
                             @endforeach

@@ -5,7 +5,7 @@
   @endif
 
 
-<form action="{{route('save.profile',auth('customer')->user()->id)}}" method="post" enctype="multipart/form-data">
+<form action="{{route('customer.save.profile',auth('customer')->user()->id)}}" method="post" enctype="multipart/form-data">
     @csrf
     @method('put')
     <div class="container rounded bg-white mt-5 mb-5">
@@ -36,8 +36,7 @@
                             <label class="labels">Image</label>
                             <input type="file" name="image" class="form-control-file">
                           </div>
-                      
-                        
+      
                     </div>
                     <br>
                     

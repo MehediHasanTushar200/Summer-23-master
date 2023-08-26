@@ -3,7 +3,7 @@
 
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('frontend/assets/img/header/TUSHAR.PNG');">
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/frontend/assets/img/header/picture4.jpg');">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
         <h2>Property Details</h2>
@@ -55,7 +55,7 @@
               <h3>Property information</h3>
               <ul>
                 <li><strong>Property status:-</strong> <span>{{$properties->status}}</span></li>
-                <li><strong>Property name:-</strong> <span>{{$properties->name}}</span></li>
+                <li><strong>Property name:-</strong> <span>{{$properties->project->name}}</span></li>
                 <li><strong>Location:-</strong> <span>{{$properties->address}}</span></li>
                 <li><strong>Price per square foot:-</strong> <span>{{$properties->price}} BDT</span></li>
                 <strong>Calculate Price:</strong>
@@ -70,6 +70,7 @@
               {{-- @dd( $properties->id) --}}
                 {{-- <li><strong>End Time:-</strong> <a href="#">www.example.com</a></li> --}}
                 <li><a href="{{route('Booking.create' , $properties->id)}}" class="btn-visit align-self-start">Booking</a></li>
+                
               </ul>
             </div>
           </div>
@@ -96,29 +97,6 @@
 
 
     <!-- End Projet Details Section -->
-
-  </main>
-  <!-- End #main -->
-
-  {{-- <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> --}}
-
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
-</html>
 
 
 @endsection

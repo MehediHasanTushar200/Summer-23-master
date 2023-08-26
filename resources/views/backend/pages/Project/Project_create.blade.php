@@ -126,10 +126,12 @@
     </select>
 
     <br>
+    <br>
     {{-- <label for="extend_date">Extend date:</label>
     <input  value="" type="datetime-local" id="extend_date" name="extend_date" > --}}
 
-    <input type="submit" value="Submit">
+    <button type="submit" class="btn btn-success">Submit</button>
+   
   </form>
 </body>
 </html>

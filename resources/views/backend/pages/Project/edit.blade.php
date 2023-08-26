@@ -123,7 +123,7 @@
     <input  value="" type="datetime-local" id="extend_date" name="extend_date" >
 
 
-    <input type="submit" value="Submit">
+    <input type="submit" value="update">
   </form>
 </body>
 </html>

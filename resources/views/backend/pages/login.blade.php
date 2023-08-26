@@ -65,11 +65,11 @@
                             <h3 class="text-center text-info">Admin Login</h3>
                             <div class="form-group">
                                 <label for="email" class="text-info">Email:</label><br>
-                                <input type="text" name="email" id="username" class="form-control">
+                                <input type="email" name="email" id="username" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Password:</label><br>
-                                <input type="text" name="password" id="password" class="form-control">
+                                <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="form-group">
 

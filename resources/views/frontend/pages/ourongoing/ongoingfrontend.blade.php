@@ -3,7 +3,7 @@
 
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('frontend/assets/img/header/TUSHAR.PNG');">
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/frontend/assets/img/header/picture5.jpg');">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
         <h2>Project Details</h2>

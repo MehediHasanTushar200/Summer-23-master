@@ -97,8 +97,16 @@
     <label for="description">Description:</label>
     <textarea id="description" name="description" rows="4" cols="50" required></textarea>
 
-    <label for="address">Address:</label>
-    <input type="text" id="address" name="address" required>
+    <label for="name">Address:</label>
+    <select type="text" id="name" name="address" required> 
+    @foreach ($projects as $project)
+        <option value="{{$project->location}}">{{$project->location}}</option>
+      @endforeach
+    </select>
+
+    {{-- <label for="address">Address:</label>
+    <input type="text" id="address" name="address" required> --}}
+    
 
     <label for="image">Image:</label>
     <input type="file" id="image" name="image" required>

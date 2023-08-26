@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use PhpParser\Node\NullableType;
 
 return new class extends Migration
 {
@@ -14,6 +15,7 @@ return new class extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->foreignId('project_id')->constrained('projects')->cascadeOnDelete();  
+            $table->string('name')->nullable(); 
             $table->string('status');    
             $table->string('description');
             $table->string('address');

@@ -85,7 +85,7 @@
     <input type="text" id="contact_number" name="contact_number" required>
 
     <label for="address">Address:</label>
-    <input type="text" id="address" name="address" required>
+    <input  type="text" id="address" name="address" required>
 
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
@@ -98,10 +98,10 @@
     </select> --}}
 
     <label for="status">Preferred apartment:</label>
-    <input value="" type="text" id="status" name="status" required>
+    <input value="{{$data->status}}"  type="text" id="status" name="status" required>
 
    
-    <label for="appartment_name">Property name:</label>
+    <label for="appartment_name">Project name:</label>
     <input value="{{$data->name}}" type="text" id="appartment_name" name="appartment_name" required>
 
     <label for="visit_date">Visit Date:</label>
@@ -115,6 +115,8 @@
     <textarea id="additional_comments" name="additional_comments" rows="4" cols="50" required></textarea>
 
     <input type="submit" value="Submit">
+    
+ 
   </form>
 </body>
 </html>

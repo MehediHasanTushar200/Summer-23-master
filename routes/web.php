@@ -11,6 +11,7 @@ use App\Http\Controllers\frontend\CustomerController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\Property_typeController;
 use App\Http\Controllers\AgentController;
+
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\SheduleController;
 use App\Http\Controllers\BookingController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\UserController;
 use App\Models\Customer;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +52,10 @@ Route::get('/ongoingproject-show/{id}',[HomeController::class,'ongoingprojectsho
 Route::get('/user/login',[HomeController::class,'user'])->name('user.login');
 Route::post('/user/dologin',[CustomerController::class,'dologin'])->name('user.dologin');
 
+
+
+
+
 //middle ware for booking .....................................................................
 Route::group(['middleware'=>'frontendauth'],function(){
    
@@ -57,12 +63,19 @@ Route::group(['middleware'=>'frontendauth'],function(){
     Route::get('/user/logout',[CustomerController::class,'userlogout'])->name('user.logout');
 
 //user profile
-    Route::get('/user/profile',[HomeController::class,'userProfile'])->name('user.login.profile');   
-});
+    Route::get('/user/profile',[HomeController::class,'userProfile'])->name('user.login.profile');
     
+    //baksh route
+    
+});
+
+
+
+
 //user profile............................................................................
 Route::get('/edit/profile', [CustomerController::class,'editprofile'])->name('edit.profile');
-Route::put('/save-profile/{id}', [CustomerController::class,'saveprofile'])->name('save.profile');
+Route::put('/save-profile/{id}', [CustomerController::class,'saveprofile'])->name('customer.save.profile');
+
 //frontend user login.....................................................................
 
 Route::get('/user/registration',[HomeController::class,'registration'])->name('user.registration');
@@ -77,6 +90,8 @@ Route::post('/user/doregistration',[CustomerController::class,'doregistration'])
 Route::get('/user/contact',[ContactController::class,'contact'])->name('contact.us');
 Route::get('/user/contact/backendtable',[ContactController::class,'backendcontact'])->name('backend.contact.us');
 Route::post('/user/contact/store',[ContactController::class,'frontendcontactstore'])->name('frontend.contact.us.store');
+
+Route::get('/user/contact/backendtable/delet/{id}',[ContactController::class,'delete'])->name('backend.contact.delete');
 
 // Route::post('/user/send-message',[ContactController::class,'sendmail'])->name('conatct.sent');
 
@@ -95,23 +110,24 @@ Route::get('/property/status/{type}', [PropertyController::class,'showproperty']
 Route::get('/view/Property/{id}',[PropertyController::class,'view'])->name('property.view');
 
 
-//log in log out.....................................................................................
-Route::get('/admin/login',[UserController::class,'login'])->name('admin.login');
-Route::post('/admin/login',[UserController::class,'loginn'])->name('admin.login.form');
-Route::post('/admin/logout',[UserController::class,'destroy'])->name('admin.logout.form');
+
 
 
 Route::get('/admin/employee/profile',[UserController::class,'employeeprofile'])->name('employee.ptofile');
-
+Route::get('/admin/employee/edite/profile',[UserController::class,'employeeediteprofile'])->name('employee.edite.ptofile');
+Route::put('/employee/save-profile/{id}', [UserController::class,'saveprofile'])->name('save.profile');
 //.......................................................................................
+
 // usercreate
 Route::get('admin/user/create',[UserController::class,'usercreate'])->name('user.create');
 Route::post('/admin/user/login',[UserController::class,'userloginn'])->name('admin.user.login.form');
 //......................................................................................
+
 // Booking route
 Route::get('/Booking', [BookingController::class,'Booking'])->name('Booking');
 Route::post('/Booking-store', [BookingController::class,'Bookingstore'])->name('Booking.store');
 // Route::get('/booking-dashboard', [BookingController::class,'showBookingDashboard']);
+Route::get('/booking/delete/{id}',[BookingController::class,'delete'])->name('booking.delete');
 
 
 
@@ -122,6 +138,10 @@ Route::post('/Booking-store', [BookingController::class,'Bookingstore'])->name('
 
 
 
+//log in log out.....................................................................................
+Route::get('/admin/login',[UserController::class,'login'])->name('admin.login');
+Route::post('/admin/login/form',[UserController::class,'loginn'])->name('admin.login.form');
+Route::post('/admin/logout',[UserController::class,'destroy'])->name('admin.logout.form');
 
 
 //..................................Admin Prefix.......................................................
@@ -130,18 +150,12 @@ Route::post('/Booking-store', [BookingController::class,'Bookingstore'])->name('
 
 
 //for backend............Admin..........................................................................
-Route::get('/admin', function () {return view('master');});
-
-//log in log out.....................................................................................
-// Route::get('/admin/login',[UserController::class,'login'])->name('admin.login');
-// Route::post('/admin/login',[UserController::class,'loginn'])->name('admin.login.form');
-// Route::post('/admin/logout',[UserController::class,'destroy'])->name('admin.logout.form');
-
-    
-
+Route::get('/admin', function () {
+    return view('master');
+});
 //group of route for admin....
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
-//......................................................................................
+//.....................................................................................
 
 //dashboard route...
 Route::get('/', [DashboardController::class,'dashboard'])->name('dashboard');
@@ -180,16 +194,14 @@ Route::put('/property/update/{id}',[PropertyController::class,'update'])->name('
 
 
 //.......................................................................................
-//Agent route
-Route::get('/Agent', [AgentController::class,'Agent'])->name('Agent');
-Route::get('/Agent/add', [AgentController::class,'Agentadd'])->name('Agent.add');
-Route::post('/Agent-store', [AgentController::class,'agentstore'])->name('Agent.store');
-//......................................................................................
+
 
 
 //.......................................................................................
 // Client route
 Route::get('/Client', [CustomerController::class,'Client'])->name('Client');
+Route::get('/Client/delet/{id}', [CustomerController::class,'delete'])->name('Client.delete');
+
 //......................................................................................
 
 
@@ -203,6 +215,17 @@ Route::get('/Shedule/create', [SheduleController::class,'Shedulenew'])->name('Sh
 //.......................................................................................
 // Report route
 Route::get('/Report', [ReportController::class,'Report'])->name('Report');
+Route::get('/Reportall', [ReportController::class,'allReport'])->name('all');
 Route::get('/report/search', [ReportController::class,'reportSearch'])->name('Report.search');
+
+
+Route::get('/Reporbooking', [ReportController::class,'bookingReport'])->name('booking.report');
+Route::get('/report/booking/search', [ReportController::class,'bokkingreportSearch'])->name('booking.Report.search');
+
+
+
+
+
+
 //......................................................................................
 });

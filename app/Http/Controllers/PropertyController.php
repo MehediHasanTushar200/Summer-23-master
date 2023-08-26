@@ -95,11 +95,12 @@ class PropertyController extends Controller
   $properties = Property::find($id); 
 
   $properties->update([
-    'name'=>$request->name,
+   
     'status'=>$request->status,
     'description'=>$request->description,
     'address'=>$request->address,
     'price'=>$request->price
+    
     
   ]);
  

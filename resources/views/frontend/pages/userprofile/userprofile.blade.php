@@ -17,25 +17,37 @@
                     <h4 class="text-right"> User Profile Settings</h4>
                 </div>
                 <div class="row mt-2">
-                  
-                    <div class="col-md-6"><label class="labels">First name</label><input type="text" class="form-control" name="firstname" placeholder="first name" value="{{auth()->guard('customer')->user()->firstname}}"></div>
-                    <div class="col-md-6"><label class="labels">Last name</label><input type="text" class="form-control" name="lastname"value="{{auth('customer')->user()->lastname}}" placeholder="surname"></div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" name="phone_number" class="form-control" placeholder="enter phone number" value="{{auth()->guard('customer')->user()->phone_number}}"></div>
-                    <div class="col-md-12"><label class="labels"> Present Address</label><input type="text" name="present_address" class="form-control" placeholder="enter  present address " value="{{auth()->guard('customer')->user()->present_address}}"></div>
-                    <div class="col-md-12"><label class="labels"> Parmanent Address</label><input type="text" name="permanent_address"class="form-control" placeholder="enter permanent address" value="{{auth()->guard('customer')->user()->permanent_address}}"></div>
+                    <div class="col-md-6">
+                        <label class="labels">full name</label>
+                        <p>{{ auth()->guard('customer')->user()->firstname }} {{ auth('customer')->user()->lastname }}</p>
+                        
+                    </div>
                     
                 </div>
-
-                <div class="mt-5 text-center">
-                    <a class="btn btn-primary profile-button" href="{{route('edit.profile',auth('customer')->user()->id)}}">Edit Profile</a>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <label class="labels">Mobile Number</label>
+                        <p>{{ auth()->guard('customer')->user()->phone_number }}</p>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Present Address</label>
+                        <p>{{ auth()->guard('customer')->user()->present_address }}</p>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Parmanent Address</label>
+                        <p>{{ auth()->guard('customer')->user()->permanent_address }}</p>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Booked</label>
+                        <p></p>
+                    </div>  
                 </div>
                 
+                <div class="mt-5 text-center">
+                    <a class="btn btn-primary profile-button" href="{{route('edit.profile',auth('customer')->user()->id)}}">Edit Profile</a>
+                </div>   
             </div>
-        </div>
-        
-       
+        </div>  
     </div>
 </div>
 </div>

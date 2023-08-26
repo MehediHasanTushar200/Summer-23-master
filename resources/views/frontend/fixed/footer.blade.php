@@ -9,24 +9,28 @@
             <div class="footer-info">
               <h3>Tushar Real Easted Ltd</h3>
               <p>
-                Uttara Faidabad<br>
-                House:02,Road:01, <br>
-                Uttara dhaka 1230<br>
+                Uttara Faidabad,House:02,Road:01,Uttara dhaka 1230<br>
+                 
+                
                 <strong>Phone:</strong> +880 1947481037<br>
-                <strong>Email:</strong> Tushar@RealEastedLtd.com<br>
+                <strong>Email:</strong> tushar@realestateltd.com<br>
               </p>
               
               <div class="social-links d-flex mt-3">
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa-brands fa-square-instagram"></i></a>
+                <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa-brands fa-linkedin"></i></a>
+               
+                
               </div>
             </div>
           </div>
+
+          
           <!-- End footer info column-->
 
-          <div class="col-lg-2 col-md-3 footer-links">
+          {{-- <div class="col-lg-2 col-md-3 footer-links">
             <h4>Useful Links</h4>
             <ul>
               <li><a href="#">Home</a></li>
@@ -35,9 +39,9 @@
               <li><a href="#">Terms of service</a></li>
               <li><a href="#">Privacy policy</a></li>
             </ul>
-          </div>
+          </div> --}}
           <!-- End footer links column-->
-
+{{-- 
           <div class="col-lg-2 col-md-3 footer-links">
             <h4>Our Services</h4>
             <ul>
@@ -47,9 +51,9 @@
               <li><a href="#">Marketing</a></li>
               <li><a href="#">Graphic Design</a></li>
             </ul>
-          </div>
+          </div> --}}
           <!-- End footer links column-->
-
+{{-- 
           <div class="col-lg-2 col-md-3 footer-links">
             <h4>Hic solutasetp</h4>
             <ul>
@@ -59,10 +63,10 @@
               <li><a href="#">Dilecta</a></li>
               <li><a href="#">Sit quas consectetur</a></li>
             </ul>
-          </div>
+          </div> --}}
           <!-- End footer links column-->
 
-          <div class="col-lg-2 col-md-3 footer-links">
+          {{-- <div class="col-lg-2 col-md-3 footer-links">
             <h4>Nobis illum</h4>
             <ul>
               <li><a href="#">Ipsam</a></li>
@@ -71,7 +75,7 @@
               <li><a href="#">Trodelas</a></li>
               <li><a href="#">Flexo</a></li>
             </ul>
-          </div>
+          </div> --}}
           <!-- End footer links column-->
 
         </div>

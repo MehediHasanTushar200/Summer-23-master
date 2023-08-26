@@ -37,26 +37,30 @@ class ContactController extends Controller
   
 
    public function frontendcontactstore(Request $request)
-   
-   
    {
-
-
-    Contact::create 
-    ([
-
+    Contact::create([
       'name'=>$request->name,
       'email'=>$request->email,
       'subject'=>$request->subject,
       'message'=>$request->message
-      
-      
-      
-      
     ]);
     return redirect()->back()->with('msg',' Created successfully.');
 
    }
+
+
+
+   public function delete($id)
+   {
+   
+    $contacts=Contact::find($id);
+    $contacts->delete();
+    return redirect()->back()->with('msg','contact Deleted successfully.');
+   
+   
+   }
+   
+
 
 
    }

@@ -62,44 +62,22 @@
 
           <div class="col-lg-6 d-flex align-items-center" data-aos="fade-up">
             <div class="content">
-              <h3>Minus hic non reiciendis ea possimus at quia.</h3>
-              <p>Rem id rerum. Debitis deserunt quidem delectus expedita ducimus dolor. Aut iusto ipsa. Eos ipsum nobis ipsa soluta itaque perspiciatis fuga ipsum perspiciatis. Eum amet fugiat totam nisi possimus ut delectus dicta.
-              <p>Aliquam velit deserunt autem. Inventore et saepe. Tenetur suscipit eligendi labore culpa eos. Deserunt porro magni qui necessitatibus dolorem at animi cupiditate.</p>
+              <h3>   Why TUSHAR REAL ESTATE LTD Is The Best Real Estate Developer Company In Bangladesh?.</h3>
+              
+              <p>Why TUSHAR REAL ESTATE LTD Builders Ltd. is one of the pioneer real estate company in Bangladesh.
+                 Since inception in 2002, we have been creating home and work spaces with a difference,
+                  to make prestigious, luxury living in DHAKA city.
+                   The main concentration of TUSHAR REAL ESTATE LTD has been in prime, attractive locations of Banani,
+                    Baridhara, Dhanmondi, Uttara, and Mid Town of Dhaka city, the emphasis being on sound construction and aesthetic design.
+              </p>
             </div>
           </div>
-
           <div class="col-lg-5" data-aos="fade">
-            <form action="forms/quote.php" method="post" class="php-email-form">
-              <h3>Get a quote</h3>
-              <p>Vel nobis odio laboriosam et hic voluptatem. Inventore vitae totam. Rerum repellendus enim linead sero park flows.</p>
-              <div class="row gy-3">
-
-                <div class="col-md-12">
-                  <input type="text" name="name" class="form-control" placeholder="Name" required>
-                </div>
-
-                <div class="col-md-12 ">
-                  <input type="email" class="form-control" name="email" placeholder="Email" required>
-                </div>
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="phone" placeholder="Phone" required>
-                </div>
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-                </div>
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your quote request has been sent successfully. Thank you!</div>
-                  <button type="submit">Get a quote</button>
-                </div>
-              </div>
-            </form>
           </div>
         </div>
       </div>
-    </section> 
- 
+    </section>  
+  
 
 
 {{-- card for 6 card add with logo green colour --}}
@@ -284,15 +262,17 @@
             <div class="elementor-counter">
                 <div class="elementor-counter-number-wrapper">
                     <span class="elementor-counter-number-prefix"></span>
-                    <span class="elementor-counter-number" data-duration="2000" data-to-value="253" data-from-value="253"
+                    {{-- <span class="elementor-counter-number" data-duration="2000" data-to-value="253" data-from-value="253"
                         data-delimiter="," style="font-size: medium; font-weight: bold;">253</span>
-                    <span class="elementor-counter-number-suffix"></span>
+                    <span class="elementor-counter-number-suffix"></span> --}}
+                    <p></p>
                 </div>
-                <div class="elementor-counter-title">Completed Projects</div>
+                <div class="elementor-counter-title">Upcoming Projects</div>
             </div>
+
             <div class="elementor-button-wrapper">
                 <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-grow"
-                    href="">
+                    href="{{route('show.project.type','Upcoming')}}">
                     <span class="elementor-button-content-wrapper">
                         <span class="elementor-button-text">View Projects</span>
                     </span>
@@ -308,11 +288,12 @@
                         data-delimiter="," style="font-size: medium; font-weight: bold;">52</span>
                     <span class="elementor-counter-number-suffix"></span>
                 </div>
+
                 <div class="elementor-counter-title">On-going Projects</div>
             </div>
             <div class="elementor-button-wrapper">
                 <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-grow"
-                    href="">
+                    href="{{route('show.project.type','Ongoing')}}">
                     <span class="elementor-button-content-wrapper">
                         <span class="elementor-button-text">View Projects</span>
                     </span>
@@ -328,11 +309,12 @@
                         data-delimiter="," style="font-size: large; font-weight: bold;">8</span>
                     <span class="elementor-counter-number-suffix"></span>
                 </div>
-                <div class="elementor-counter-title">Upcoming Projects</div>
+                <div class="elementor-counter-title">Completed Projects</div>
             </div>
+
             <div class="elementor-button-wrapper">
                 <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-grow"
-                    href="">
+                    href="{{route('show.project.type','Completed')}}">
                     <span class="elementor-button-content-wrapper">
                         <span class="elementor-button-text">View Projects</span>
                     </span>
@@ -566,6 +548,6 @@
     <!-- End Recent Blog Posts Section -->
     <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <div id="preloader"></div>
+
   </main>
 @endsection

@@ -41,7 +41,7 @@
                            
 
                               <td>                             
-                                <a  type="button" class="btn btn-danger" href="">Delete</a>
+                                <a  type="button" class="btn btn-danger" href="{{route('Client.delete',$client->id)}}">Delete</a>
                               </td>
 
                             </tr>

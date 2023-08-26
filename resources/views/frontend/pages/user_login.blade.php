@@ -34,7 +34,7 @@
                             <h3 class="text-center text-info">User Login</h3>
                             <div class="form-group">
                                 <label for="email" class="text-info">Email:</label><br>
-                                <input type="text" name="email" id="username" class="form-control">
+                                <input type="email" name="email" id="username" class="form-control">
                             </div>
 
                             <div class="form-group">

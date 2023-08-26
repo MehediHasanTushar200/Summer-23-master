@@ -39,8 +39,16 @@
 @endforeach
 
 @else
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-<p> Sorry ! Not project found </p>
+<h1>Sorry ! Not project found</h1> 
 
 @endif
 

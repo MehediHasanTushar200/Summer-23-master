@@ -79,8 +79,8 @@
     @csrf
     @method('put')
 
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" >   
+    {{-- <label for="name">Name:</label>
+    <input type="text" id="name" name="project_id" >    --}}
 
     <label for="status">  Select Property Status:</label>
     <select id="status" name="status" class="custom-dropdown" >
@@ -98,8 +98,8 @@
     <label for="address">Address:</label>
     <input value='{{$properties->address}}'   type="text" id="address" name="address" required>
 
-    <label for="image">Image:</label>
-    <input value=''  type="file" id="image" name="image" required>
+    {{-- <label for="image">Image:</label>
+    <input value=''  type="file" id="image" name="image" required> --}}
 
     <label for="price">Price:</label>
     <input value='{{$properties->price}}'  type="text" id="price" name="price" required>

@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Support\Facades\Redis;
+
+
+
 
 class ProjectController extends Controller
 
@@ -23,9 +24,17 @@ class ProjectController extends Controller
     Public function Project()
 
     {
-      $projects = Project::all();
-      // $projects =Project::where('name')->get();
-      return view('backend.pages.project.Project',compact('projects'));
+    
+      // $projects = Project::all();
+      // dd(auth()->user()->name);
+     
+      $projects =Project::where('employee',auth()->user()->name)->get();
+      
+      $projects =Project::where('name',auth()->user()->name =='admin')->get();
+      
+
+      // dd($projects);
+      return view('backend.pages.project.Project',compact('projects','projects'));
     }
     //...........................................................................
 
@@ -33,6 +42,7 @@ class ProjectController extends Controller
     
     {
       // $projects = Project::all();
+     
       $type=User::where('user_type','Employee')->get();
      return view('backend.pages.project.Project_create',compact('type'));
     }

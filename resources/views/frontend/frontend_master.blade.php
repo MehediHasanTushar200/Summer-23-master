@@ -37,6 +37,16 @@
 
  {{-- toaster sms show --}}
 
+
+
+ {{-- 2nd toaster using package --}}
+
+ <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
+ <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+        <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+  {{-- 2nd toaster using package --}}
+
   <!-- Template Main CSS File -->
   <link href="{{URL::asset('frontend/assets/css/main.css')}}" rel="stylesheet">
  {{-- toaster css --}}
